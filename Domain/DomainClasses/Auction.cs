@@ -7,6 +7,7 @@ namespace Domain
     {
         public int Id { get; set; }
         public Product Product { get; set; }
+        public bool IsActive { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public decimal AcceptedPrice { get; set; }
