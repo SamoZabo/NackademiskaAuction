@@ -12,6 +12,6 @@ namespace Domain.Repository
         IList<Auction> GetAuctions();
         void AddBid(int auctionId, Bid bid);
         void AddAuction(Auction auction);
-        void EndAuction();
+        void EndAuction(int auctionId);
     }
 }
