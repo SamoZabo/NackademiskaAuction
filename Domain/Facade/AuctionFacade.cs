@@ -75,12 +75,22 @@ namespace Domain.Facade
             if (auction == null)
                 return null;
             _auctionRespository.EndAuction(auction.Id);
+            if (auction.Bids.Any())
+            {
+                auction.Product.IsSold = true;
+                _productRepository.Update(auction.Product);
+            }
             return auction.Bids.OrderBy(b => b.Amount).LastOrDefault();
         }
 
         public IList<Auction> GetAll()
         {
-            return _auctionRespository.GetAuctions();
+            return _auctionRespository.GetAuctions() ?? new List<Auction>();
+        }
+
+        public IList<Auction> GetAllActive()
+        {
+            return GetAll().Where(a => a.IsActive).ToList();
         }
     }
 }

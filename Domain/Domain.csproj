@@ -51,6 +51,10 @@
     <Compile Include="DomainClasses\Product.cs" />
     <Compile Include="Facade\AuctionFacade.cs" />
     <Compile Include="Facade\IAuctionFacade.cs" />
+    <Compile Include="Facade\IProductFacade.cs" />
+    <Compile Include="Facade\ProductFacade.cs" />
+    <Compile Include="Factory\IProductFactory.cs" />
+    <Compile Include="Factory\ProductFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainClasses\Supplier.cs" />
     <Compile Include="Repository\IAuctionRespository.cs" />

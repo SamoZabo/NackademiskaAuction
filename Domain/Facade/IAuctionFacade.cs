@@ -13,5 +13,6 @@ namespace Domain.Facade
         bool PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer);
         Bid EndAuction(int auctionId);
         IList<Auction> GetAll();
+        IList<Auction> GetAllActive();
     }
 }

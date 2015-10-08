@@ -10,6 +10,7 @@ namespace Domain.Repository
     {
         Product Get(int id);
         void Add(Product product);
-
+        void Update(Product product);
+        IList<Product> GetAll();
     }
 }

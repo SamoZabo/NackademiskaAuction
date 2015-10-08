@@ -14,6 +14,7 @@ namespace Domain
         public decimal Provision { get; set; }
         public decimal StartPrice { get; set; }
         public Supplier Supplier { get; set; }
+        public bool IsSold { get; set; }
 
         public virtual decimal GetStartPrice()
         {
