@@ -57,7 +57,7 @@
     <Compile Include="Factory\ProductFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainClasses\Supplier.cs" />
-    <Compile Include="Repository\IAuctionRespository.cs" />
+    <Compile Include="Repository\IAuctionRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
   </ItemGroup>
   <ItemGroup />
