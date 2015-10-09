@@ -49,6 +49,7 @@
     <Compile Include="DomainClasses\MassProduct.cs" />
     <Compile Include="DomainClasses\ModernProduct.cs" />
     <Compile Include="DomainClasses\Product.cs" />
+    <Compile Include="Exception\AuctionException.cs" />
     <Compile Include="Facade\AuctionFacade.cs" />
     <Compile Include="Facade\IAuctionFacade.cs" />
     <Compile Include="Facade\IProductFacade.cs" />

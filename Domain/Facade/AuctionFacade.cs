@@ -49,6 +49,8 @@ namespace Domain.Facade
 
         public bool PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer)
         {
+            // TODO - check product inte har en auction eller product inte är sold
+
             var auction = Get(auctionId);
             if (customer == null || auction == null)
                 return false;
