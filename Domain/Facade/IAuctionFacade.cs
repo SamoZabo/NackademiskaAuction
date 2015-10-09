@@ -8,9 +8,9 @@ namespace Domain.Facade
 {
     public interface IAuctionFacade
     {
-        bool Create(int productId, DateTime startTime, DateTime endTime);
+        void Create(int productId, DateTime startTime, DateTime endTime);
         Auction Get(int id);
-        bool PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer);
+        void PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer);
         Bid EndAuction(int auctionId);
         IList<Auction> GetAll();
         IList<Auction> GetAllActive();

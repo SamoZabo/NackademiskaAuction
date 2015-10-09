@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Exception;
 using Domain.Repository;
 
 namespace Domain.Facade
@@ -19,17 +20,32 @@ namespace Domain.Facade
             _productRepository = productRepository;
         }
 
-        public bool Create(int productId, DateTime startTime, DateTime endTime)
+        public void Create(int productId, DateTime startTime, DateTime endTime)
         {
-            if (endTime < startTime || endTime < DateTime.Now)
+            if (endTime < startTime)
             {
-                return false;
+                throw new EndTimeBeforeStartTimeException(
+                    string.Format("End time {0} cannot be earlier than start time {1}", endTime, startTime));
+            }
+            if (endTime < DateTime.Now)
+            {
+                throw new EndTimeEarlierThanNowException(string.Format("End time {0} cannot be earlier than now",
+                    endTime));
             }
             var product = _productRepository.Get(productId);
             if (product == null)
             {
-                return false;
+                throw new ProductNotExistException(string.Format("Product with id {0} does not exist", productId));
             }
+            if (product.IsSold)
+            {
+                throw new ProductIsSoldException(product.Name);
+            }
+            if (_auctionRespository.GetAuctions().Any(a => a.IsActive && a.Product.Id == productId))
+            {
+                throw new ProductHasActiveAuctionException(product.Name);
+            }
+
             var auction = new Auction
             {
                 AcceptedPrice = product.GetStartPrice() * (decimal)1.5,
@@ -39,7 +55,6 @@ namespace Domain.Facade
                 IsActive = startTime < DateTime.Now
             };
             _auctionRespository.AddAuction(auction);
-            return true;
         }
 
         public Auction Get(int id)
@@ -47,35 +62,36 @@ namespace Domain.Facade
             return _auctionRespository.Get(id);
         }
 
-        public bool PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer)
+        public void PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer)
         {
-            // TODO - check product inte har en auction eller product inte är sold
-
             var auction = Get(auctionId);
-            if (customer == null || auction == null)
-                return false;
+            if (customer == null) throw new CustomerNotExistException("Customer does not exist");
+            if (auction == null) throw new AuctionNotExistException();
+
             if (bidTime < auction.StartTime || bidTime > auction.EndTime)
-                return false;
+                throw new BidTimeToEarlyOrToLateException();
+
             if (amount < auction.Product.GetStartPrice())
-                return false;
+                throw new BidAmountToSmallException(amount, auction.Product.GetStartPrice());
+
             var lastestBid = auction.Bids.OrderBy(b => b.Amount).LastOrDefault();
             if (lastestBid != null && amount < lastestBid.Amount)
-                return false;
+                throw new BidAmountToSmallException(amount, lastestBid.Amount);
+
             var bid = new Bid { Customer = customer, Amount = amount, Time = bidTime };
             _auctionRespository.AddBid(auction.Id, bid);
             if (bid.Amount >= auction.AcceptedPrice)
             {
                 EndAuction(auction.Id);
-                return true;
             }
-            return true;
         }
 
         public Bid EndAuction(int auctionId)
         {
             var auction = Get(auctionId);
             if (auction == null)
-                return null;
+                throw new AuctionNotExistException();
+
             _auctionRespository.EndAuction(auction.Id);
             if (auction.Bids.Any())
             {

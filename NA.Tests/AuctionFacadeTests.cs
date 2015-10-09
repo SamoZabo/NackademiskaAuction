@@ -1,5 +1,6 @@
 ﻿using System;
 using Domain;
+using Domain.Exception;
 using Domain.Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NA.Tests.FakeRepository;
@@ -26,29 +27,28 @@ namespace NA.Tests
         [TestMethod]
         public void AuctionCanBeAdded()
         {
-            var result = sut.Create(1, DateTime.Now, DateTime.Now.AddHours(3));
-            Assert.IsTrue(result);
+            sut.Create(1, DateTime.Now, DateTime.Now.AddHours(3));
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ProductNotExistException))]
         public void AuctionCanNotBeAddedIfProductNotExists()
         {
-            var result = sut.Create(1001, DateTime.Now, DateTime.Now.AddHours(3));
-            Assert.IsFalse(result);
+            sut.Create(1001, DateTime.Now, DateTime.Now.AddHours(3));
         }
 
         [TestMethod]
+        [ExpectedException(typeof(EndTimeBeforeStartTimeException))]
         public void AuctionCanNotBeAddedIfEndTimeIsEarlierThanStartTime()
         {
-            var result = sut.Create(1, DateTime.Now, DateTime.Now.AddHours(-3));
-            Assert.IsFalse(result);
+            sut.Create(1, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(-3));
         }
 
         [TestMethod]
+        [ExpectedException(typeof(EndTimeEarlierThanNowException))]
         public void AuctionCanNotBeAddedIfEndTimeIsEarlierThanNow()
         {
-            var result = sut.Create(1, DateTime.Now, DateTime.Now.AddHours(-3));
-            Assert.IsFalse(result);
+            sut.Create(1, DateTime.Now.AddDays(-1), DateTime.Now.AddDays(-1).AddHours(3));
         }
 
         [TestMethod]
