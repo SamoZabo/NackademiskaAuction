@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public interface IAuctionRespository
+    public interface IAuctionRepository
     {
         Auction Get(int id);
         IList<Auction> GetAuctions();

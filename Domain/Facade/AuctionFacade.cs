@@ -10,10 +10,10 @@ namespace Domain.Facade
 {
     public class AuctionFacade : IAuctionFacade
     {
-        private readonly IAuctionRespository _auctionRespository;
+        private readonly IAuctionRepository _auctionRespository;
         private readonly IProductRepository _productRepository;
 
-        public AuctionFacade(IAuctionRespository auctionRespository, IProductRepository productRepository)
+        public AuctionFacade(IAuctionRepository auctionRespository, IProductRepository productRepository)
         {
             _auctionRespository = auctionRespository;
             _productRepository = productRepository;
