@@ -6,10 +6,10 @@ namespace NA.Domain.Facade
 {
     public interface IAuctionFacade
     {
-        void Create(int productId, DateTime startTime, DateTime endTime);
-        Auction Get(int id);
-        void PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer);
-        Bid EndAuction(int auctionId);
+        void Create(Guid acutionId, Guid productId, DateTime startTime, DateTime endTime);
+        Auction Get(Guid id);
+        void PlaceBid(Guid bidId, Guid auctionId, decimal amount, DateTime bidTime, Customer customer);
+        Bid EndAuction(Guid auctionId);
         IList<Auction> GetAll();
         IList<Auction> GetAllActive();
     }

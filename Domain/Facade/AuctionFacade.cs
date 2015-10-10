@@ -18,7 +18,7 @@ namespace NA.Domain.Facade
             _productRepository = productRepository;
         }
 
-        public void Create(int productId, DateTime startTime, DateTime endTime)
+        public void Create(Guid auctionId, Guid productId, DateTime startTime, DateTime endTime)
         {
             if (endTime < startTime)
             {
@@ -46,6 +46,7 @@ namespace NA.Domain.Facade
 
             var auction = new Auction
             {
+                Id = auctionId,
                 AcceptedPrice = product.GetStartPrice() * (decimal)1.5,
                 Product = product,
                 StartTime = startTime,
@@ -55,12 +56,12 @@ namespace NA.Domain.Facade
             _auctionRespository.AddAuction(auction);
         }
 
-        public Auction Get(int id)
+        public Auction Get(Guid id)
         {
             return _auctionRespository.Get(id);
         }
 
-        public void PlaceBid(int auctionId, decimal amount, DateTime bidTime, Customer customer)
+        public void PlaceBid(Guid bidId, Guid auctionId, decimal amount, DateTime bidTime, Customer customer)
         {
             var auction = Get(auctionId);
             if (customer == null) throw new CustomerNotExistException("Customer does not exist");
@@ -76,7 +77,7 @@ namespace NA.Domain.Facade
             if (lastestBid != null && amount < lastestBid.Amount)
                 throw new BidAmountToSmallException(amount, lastestBid.Amount);
 
-            var bid = new Bid { Customer = customer, Amount = amount, Time = bidTime };
+            var bid = new Bid { Id = bidId, Customer = customer, Amount = amount, Time = bidTime };
             _auctionRespository.AddBid(auction.Id, bid);
             if (bid.Amount >= auction.AcceptedPrice)
             {
@@ -84,7 +85,7 @@ namespace NA.Domain.Facade
             }
         }
 
-        public Bid EndAuction(int auctionId)
+        public Bid EndAuction(Guid auctionId)
         {
             var auction = Get(auctionId);
             if (auction == null)

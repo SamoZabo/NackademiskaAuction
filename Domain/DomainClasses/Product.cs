@@ -1,8 +1,10 @@
-﻿namespace NA.Domain.DomainClasses
+﻿using System;
+
+namespace NA.Domain.DomainClasses
 {
     public abstract class Product
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Provision { get; set; }
         public decimal StartPrice { get; set; }

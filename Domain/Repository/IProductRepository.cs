@@ -5,7 +5,7 @@ namespace NA.Domain.Repository
 {
     public interface IProductRepository
     {
-        Product Get(int id);
+        Product Get(Guid id);
         void Add(Product product);
         void Update(Product product);
         IList<Product> GetAll();

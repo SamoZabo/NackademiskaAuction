@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NA.Domain.DomainClasses;
 using NA.Domain.Repository;
 
@@ -13,7 +14,7 @@ namespace NA.Domain.Facade
             _productRepository = productRepository;
         }
 
-        public Product Get(int productId)
+        public Product Get(Guid productId)
         {
             return _productRepository.Get(productId);
         }

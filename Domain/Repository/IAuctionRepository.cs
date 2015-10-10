@@ -5,10 +5,10 @@ namespace NA.Domain.Repository
 {
     public interface IAuctionRepository
     {
-        Auction Get(int id);
+        Auction Get(Guid id);
         IList<Auction> GetAuctions();
-        void AddBid(int auctionId, Bid bid);
+        void AddBid(Guid auctionId, Bid bid);
         void AddAuction(Auction auction);
-        void EndAuction(int auctionId);
+        void EndAuction(Guid auctionId);
     }
 }

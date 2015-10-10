@@ -8,8 +8,7 @@ namespace NA.Tests.FakeRepository
     public class FakeProductRepository : IProductRepository
     {
         private IList<Product> products = new List<Product>();
-        private int nextProductId = 1;
-        public Product Get(int id)
+        public Product Get(Guid id)
         {
             return products.FirstOrDefault(p => p.Id == id);
         }
@@ -18,8 +17,6 @@ namespace NA.Tests.FakeRepository
         {
             if (product != null)
             {
-                product.Id = nextProductId;
-                nextProductId++;
                 products.Add(product);
             }
         }
