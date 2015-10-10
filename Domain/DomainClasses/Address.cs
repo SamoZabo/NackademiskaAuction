@@ -10,6 +10,9 @@ namespace NA.Domain.DomainClasses
         public string City { get; set; }
         public string Country { get; set; }
         public AddressType AddressType { get; set; }
+
+        public virtual Customer Customer { get; set; }
+
     }
 
     public enum AddressType

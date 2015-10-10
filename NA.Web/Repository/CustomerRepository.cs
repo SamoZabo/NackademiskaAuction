@@ -16,13 +16,15 @@ namespace NA.Web.Repository
             _db = db;
         }
         public Domain.DomainClasses.Customer Get(Guid id)
+        
         {
-            return _db.Customers.FirstOrDefault(c => c.Id == id);
+            var adrs = _db.Customers.Include("Addresses").FirstOrDefault(c => c.Id == id);
+            return adrs;
         }
 
         public IList<Domain.DomainClasses.Customer> GetAll()
         {
-            return _db.Customers.ToList();
+            return _db.Customers.Include("Addresses").ToList();
         }
 
         public void Add(Domain.DomainClasses.Customer customer)

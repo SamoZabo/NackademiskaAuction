@@ -51,13 +51,16 @@
     <Compile Include="DomainClasses\Product.cs" />
     <Compile Include="Exception\AuctionException.cs" />
     <Compile Include="Facade\AuctionFacade.cs" />
+    <Compile Include="Facade\CustomerFacade.cs" />
     <Compile Include="Facade\IAuctionFacade.cs" />
+    <Compile Include="Facade\ICustomerFacade.cs" />
     <Compile Include="Facade\IProductFacade.cs" />
     <Compile Include="Facade\ProductFacade.cs" />
     <Compile Include="Factory\IProductFactory.cs" />
     <Compile Include="Factory\ProductFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainClasses\Supplier.cs" />
+    <Compile Include="Repository\IAddressRepository.cs" />
     <Compile Include="Repository\IAuctionRepository.cs" />
     <Compile Include="Repository\ICustomerRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
