@@ -5,7 +5,7 @@ namespace Domain
 {
     public class Auction
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public Product Product { get; set; }
         public bool IsActive { get; set; }
         public DateTime StartTime { get; set; }

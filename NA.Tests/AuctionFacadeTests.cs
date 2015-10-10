@@ -11,7 +11,10 @@ namespace NA.Tests
     public class AuctionFacadeTests
     {
         private AuctionFacade sut;
-        
+        private Guid productId = Guid.NewGuid();
+        private Guid auciontId = Guid.NewGuid();
+
+
 
         [TestInitialize]
         public void SetUp()
@@ -19,50 +22,50 @@ namespace NA.Tests
             var auctionRespository = new FakeAuctionRepository();
             var productRespository = new FakeProductRepository();
 
-            productRespository.Add(new AntiqueProduct());
-            auctionRespository.AddAuction(new Auction());
+            productRespository.Add(new AntiqueProduct() { Id = productId });
+            auctionRespository.AddAuction(new Auction() { Id = auciontId });
             sut = new AuctionFacade(auctionRespository, productRespository);
         }
 
         [TestMethod]
         public void AuctionCanBeAdded()
         {
-            sut.Create(1, DateTime.Now, DateTime.Now.AddHours(3));
+            sut.Create(Guid.NewGuid(), productId, DateTime.Now, DateTime.Now.AddHours(3));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ProductNotExistException))]
         public void AuctionCanNotBeAddedIfProductNotExists()
         {
-            sut.Create(1001, DateTime.Now, DateTime.Now.AddHours(3));
+            sut.Create(Guid.NewGuid(), Guid.NewGuid(), DateTime.Now, DateTime.Now.AddHours(3));
         }
 
         [TestMethod]
         [ExpectedException(typeof(EndTimeBeforeStartTimeException))]
         public void AuctionCanNotBeAddedIfEndTimeIsEarlierThanStartTime()
         {
-            sut.Create(1, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(-3));
+            sut.Create(Guid.NewGuid(), productId, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(-3));
         }
 
         [TestMethod]
         [ExpectedException(typeof(EndTimeEarlierThanNowException))]
         public void AuctionCanNotBeAddedIfEndTimeIsEarlierThanNow()
         {
-            sut.Create(1, DateTime.Now.AddDays(-1), DateTime.Now.AddDays(-1).AddHours(3));
+            sut.Create(Guid.NewGuid(), productId, DateTime.Now.AddDays(-1), DateTime.Now.AddDays(-1).AddHours(3));
         }
 
         [TestMethod]
         public void AuctionCanBeRetrieved()
         {
-            var auction = sut.Get(1);
+            var auction = sut.Get(auciontId);
             Assert.IsNotNull(auction);
-            Assert.AreEqual(auction.Id, 1);
+            Assert.AreEqual(auction.Id, auciontId);
         }
 
         [TestMethod]
         public void AuctionCanNotBeRetrievedIfNull()
         {
-            var auction = sut.Get(1001);
+            var auction = sut.Get(Guid.NewGuid());
             Assert.IsNull(auction);
         }
 

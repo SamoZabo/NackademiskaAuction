@@ -11,9 +11,7 @@ namespace NA.Tests.FakeRepository
     public class FakeAuctionRepository : IAuctionRepository
     {
         IList<Auction> auctions = new List<Auction>();
-        private int nextAuctionId = 1;
-        private int nextBidId = 1;
-        public Domain.Auction Get(int id)
+        public Domain.Auction Get(Guid id)
         {
             return auctions.FirstOrDefault(a => a.Id == id);
         }
@@ -23,13 +21,11 @@ namespace NA.Tests.FakeRepository
             return auctions;
         }
 
-        public void AddBid(int auctionId, Domain.Bid bid)
+        public void AddBid(Guid auctionId, Domain.Bid bid)
         {
             var auction = Get(auctionId);
             if (auction != null)
             {
-                bid.Id = nextBidId;
-                nextBidId++;
                 auction.Bids.Add(bid);
             }
 
@@ -37,12 +33,10 @@ namespace NA.Tests.FakeRepository
 
         public void AddAuction(Domain.Auction auction)
         {
-            auction.Id = nextAuctionId;
-            nextAuctionId++;
             auctions.Add(auction);
         }
 
-        public void EndAuction(int auctionId)
+        public void EndAuction(Guid auctionId)
         {
             var auction = Get(auctionId);
             if (auction != null)
