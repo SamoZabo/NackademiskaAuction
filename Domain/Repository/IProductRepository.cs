@@ -8,7 +8,7 @@ namespace NA.Domain.Repository
     {
         Product Get(Guid id);
         void Add(Product product);
-        void Update(Product product);
+        void Update();
         IList<Product> GetAll();
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.DataLayer", "NA.DataLaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.DBSetup", "NA.DBSetup\NA.DBSetup.csproj", "{599547FC-5463-4BB0-8D98-0F00552A105C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.Web", "NA.Web\NA.Web.csproj", "{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{599547FC-5463-4BB0-8D98-0F00552A105C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{599547FC-5463-4BB0-8D98-0F00552A105C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{599547FC-5463-4BB0-8D98-0F00552A105C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

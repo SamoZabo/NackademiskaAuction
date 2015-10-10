@@ -8,7 +8,22 @@ using NA.Domain.DomainClasses;
 
 namespace NA.DataLayer.DbContext
 {
-    public class EFContext : System.Data.Entity.DbContext
+
+    public interface IEFContext
+    {
+        DbSet<Auction> Auctions { get; set; }
+        DbSet<Product> Products { get; set; }
+        DbSet<Customer> Customers { get; set; }
+        DbSet<Bid> Bids { get; set; }
+        DbSet<Address> Addresses { get; set; }
+        DbSet<Supplier> Suppliers { get; set; }
+        DbSet<MassProduct> MassProducts { get; set; }
+        DbSet<AntiqueProduct> AntiqueProducts { get; set; }
+        DbSet<Designer> Designers { get; set; }
+        DbSet<ModernProduct> ModernProducts { get; set; }
+        void SaveDbChanges();
+    }
+    public class EFContext : System.Data.Entity.DbContext, IEFContext
     {
         public EFContext()
             : base("AuctionConnection")
@@ -26,5 +41,11 @@ namespace NA.DataLayer.DbContext
         public DbSet<Designer> Designers { get; set; }
         public DbSet<ModernProduct> ModernProducts { get; set; }
 
+
+
+        public void SaveDbChanges()
+        {
+           this.SaveChanges();
+        }
     }
 }

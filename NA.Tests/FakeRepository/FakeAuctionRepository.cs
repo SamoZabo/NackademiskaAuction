@@ -34,11 +34,9 @@ namespace NA.Tests.FakeRepository
             auctions.Add(auction);
         }
 
-        public void EndAuction(Guid auctionId)
+        public void Update()
         {
-            var auction = Get(auctionId);
-            if (auction != null)
-                auction.IsActive = false;
+           
         }
     }
 }

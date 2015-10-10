@@ -22,14 +22,9 @@ namespace NA.Tests.FakeRepository
             }
         }
 
-        public void Update(Product product)
+        public void Update()
         {
-            var currentProduct = Get(product.Id);
-            if (currentProduct != null)
-            {
-                products.Remove(currentProduct);
-                products.Add(product);
-            }
+            
         }
 
         public IList<Product> GetAll()

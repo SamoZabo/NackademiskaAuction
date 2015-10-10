@@ -91,11 +91,12 @@ namespace NA.Domain.Facade
             if (auction == null)
                 throw new AuctionNotExistException();
 
-            _auctionRespository.EndAuction(auction.Id);
+            auction.IsActive = false;
+            _auctionRespository.Update();
             if (auction.Bids.Any())
             {
                 auction.Product.IsSold = true;
-                _productRepository.Update(auction.Product);
+                _productRepository.Update();
             }
             return auction.Bids.OrderBy(b => b.Amount).LastOrDefault();
         }

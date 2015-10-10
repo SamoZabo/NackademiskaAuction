@@ -10,6 +10,6 @@ namespace NA.Domain.Repository
         IList<Auction> GetAuctions();
         void AddBid(Guid auctionId, Bid bid);
         void AddAuction(Auction auction);
-        void EndAuction(Guid auctionId);
+        void Update();
     }
 }

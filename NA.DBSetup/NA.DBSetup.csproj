@@ -66,6 +66,10 @@
       <Project>{9bbc714c-bc6d-4dab-ae52-52b5b7cc0279}</Project>
       <Name>NA.DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NA.Web\NA.Web.csproj">
+      <Project>{d0b298df-9106-43ff-89b0-e5afa5f93cfe}</Project>
+      <Name>NA.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
