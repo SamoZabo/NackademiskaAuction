@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Exception
+namespace NA.Domain.Exception
 {
     public class AuctionException : ApplicationException
     {

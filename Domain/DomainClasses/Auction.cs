@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Domain
+namespace NA.Domain.DomainClasses
 {
     public class Auction
     {

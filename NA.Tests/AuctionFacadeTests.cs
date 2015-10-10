@@ -1,8 +1,8 @@
 ﻿using System;
-using Domain;
-using Domain.Exception;
-using Domain.Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NA.Domain.DomainClasses;
+using NA.Domain.Exception;
+using NA.Domain.Facade;
 using NA.Tests.FakeRepository;
 
 namespace NA.Tests

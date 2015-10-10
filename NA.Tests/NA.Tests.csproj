@@ -56,9 +56,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\NA.Domain.csproj">
       <Project>{593a349c-6bd8-44ed-82dc-5f9a96c2d911}</Project>
-      <Name>Domain</Name>
+      <Name>NA.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

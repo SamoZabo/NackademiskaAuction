@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Exception;
-using Domain.Repository;
+using NA.Domain.DomainClasses;
+using NA.Domain.Exception;
+using NA.Domain.Repository;
 
-namespace Domain.Facade
+namespace NA.Domain.Facade
 {
     public class AuctionFacade : IAuctionFacade
     {

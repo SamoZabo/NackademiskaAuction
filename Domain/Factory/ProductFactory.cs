@@ -1,4 +1,6 @@
-﻿namespace Domain.Factory
+﻿using NA.Domain.DomainClasses;
+
+namespace NA.Domain.Factory
 {
     public class ProductFactory : IProductFactory
     {

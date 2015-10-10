@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain;
-using Domain.Repository;
+using NA.Domain.DomainClasses;
+using NA.Domain.Repository;
 
 namespace NA.Tests.FakeRepository
 {
@@ -12,12 +9,12 @@ namespace NA.Tests.FakeRepository
     {
         private IList<Product> products = new List<Product>();
         private int nextProductId = 1;
-        public Domain.Product Get(int id)
+        public Product Get(int id)
         {
             return products.FirstOrDefault(p => p.Id == id);
         }
 
-        public void Add(Domain.Product product)
+        public void Add(Product product)
         {
             if (product != null)
             {
@@ -27,7 +24,7 @@ namespace NA.Tests.FakeRepository
             }
         }
 
-        public void Update(Domain.Product product)
+        public void Update(Product product)
         {
             var currentProduct = Get(product.Id);
             if (currentProduct != null)
@@ -37,7 +34,7 @@ namespace NA.Tests.FakeRepository
             }
         }
 
-        public IList<Domain.Product> GetAll()
+        public IList<Product> GetAll()
         {
             return products;
         }

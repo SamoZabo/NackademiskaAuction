@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NA.Domain.DomainClasses;
 
-namespace Domain.Facade
+namespace NA.Domain.Facade
 {
     public interface IAuctionFacade
     {

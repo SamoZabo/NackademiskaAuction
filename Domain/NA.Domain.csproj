@@ -7,8 +7,8 @@
     <ProjectGuid>{593A349C-6BD8-44ED-82DC-5F9A96C2D911}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>NA.Domain</RootNamespace>
+    <AssemblyName>NA.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

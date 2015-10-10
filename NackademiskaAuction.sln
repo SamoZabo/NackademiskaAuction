@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{593A349C-6BD8-44ED-82DC-5F9A96C2D911}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.Domain", "Domain\NA.Domain.csproj", "{593A349C-6BD8-44ED-82DC-5F9A96C2D911}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.Tests", "NA.Tests\NA.Tests.csproj", "{BA2DBEF0-7F1D-444E-9881-8B0E6EFA41D8}"
 EndProject

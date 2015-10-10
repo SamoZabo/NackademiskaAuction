@@ -1,10 +1,7 @@
-﻿using Domain.Repository;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain;
+using NA.Domain.DomainClasses;
+using NA.Domain.Repository;
 
 namespace NA.Tests.FakeRepository
 {
@@ -13,17 +10,17 @@ namespace NA.Tests.FakeRepository
         IList<Auction> auctions = new List<Auction>();
         private int nextAuctionId = 1;
         private int nextBidId = 1;
-        public Domain.Auction Get(int id)
+        public Auction Get(int id)
         {
             return auctions.FirstOrDefault(a => a.Id == id);
         }
 
-        public IList<Domain.Auction> GetAuctions()
+        public IList<Auction> GetAuctions()
         {
             return auctions;
         }
 
-        public void AddBid(int auctionId, Domain.Bid bid)
+        public void AddBid(int auctionId, Bid bid)
         {
             var auction = Get(auctionId);
             if (auction != null)
@@ -35,7 +32,7 @@ namespace NA.Tests.FakeRepository
 
         }
 
-        public void AddAuction(Domain.Auction auction)
+        public void AddAuction(Auction auction)
         {
             auction.Id = nextAuctionId;
             nextAuctionId++;

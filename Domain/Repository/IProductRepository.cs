@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using NA.Domain.DomainClasses;
 
-namespace Domain.Repository
+namespace NA.Domain.Repository
 {
     public interface IProductRepository
     {

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using Domain.Repository;
+using NA.Domain.DomainClasses;
+using NA.Domain.Repository;
 
-namespace Domain.Facade
+namespace NA.Domain.Facade
 {
     public class ProductFacade : IProductFacade
     {

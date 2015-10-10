@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using NA.Domain.DomainClasses;
 
-namespace Domain.Facade
+namespace NA.Domain.Facade
 {
     public interface IProductFacade
     {
