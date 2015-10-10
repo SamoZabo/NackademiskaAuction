@@ -1,4 +1,7 @@
-﻿namespace NA.Domain.DomainClasses
+﻿using System;
+using System.Collections.Generic;
+
+namespace NA.Domain.DomainClasses
 {
     public class Customer
     {

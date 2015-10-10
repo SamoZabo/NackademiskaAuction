@@ -1,4 +1,6 @@
-﻿namespace NA.Domain.DomainClasses
+﻿using System;
+
+namespace NA.Domain.DomainClasses
 {
     public class Address
     {
