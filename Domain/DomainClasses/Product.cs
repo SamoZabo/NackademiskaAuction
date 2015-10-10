@@ -4,6 +4,11 @@ namespace NA.Domain.DomainClasses
 {
     public abstract class Product
     {
+        protected Product()
+        {
+            IsSold = false;
+        }
+
         public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Provision { get; set; }
