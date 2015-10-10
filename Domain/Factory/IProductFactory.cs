@@ -1,4 +1,5 @@
-﻿using NA.Domain.DomainClasses;
+﻿using System;
+using NA.Domain.DomainClasses;
 
 namespace NA.Domain.Factory
 {
@@ -11,6 +12,7 @@ namespace NA.Domain.Factory
 
     public interface IProductFactory
     {
-        Product Create(ProductType productType);
+        Product Create(ProductType productType, Guid productId, string name, decimal provision, decimal startprice,
+            Supplier supplier);
     }
 }
