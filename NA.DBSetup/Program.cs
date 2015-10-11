@@ -17,7 +17,7 @@ namespace NA.DBSetup
         static void Main(string[] args)
         {
             var ef = new EFContext();
-            IProductRepository repo = new ProductRespository(ef);
+            IProductRepository repo = new ProductRepository(ef);
             ICustomerRepository cusRepo = new CustomerRepository(ef);
             IAddressRepository adrRepo = new AddressRepository(ef);
             var facade = new CustomerFacade(cusRepo, adrRepo);

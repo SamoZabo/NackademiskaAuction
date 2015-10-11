@@ -1,0 +1,4 @@
+
+-Identity (Inloggning och så..).
+-complete propeties (If needed).
+-tidshantering (stänga auktion via end time mot aktuella tiden).

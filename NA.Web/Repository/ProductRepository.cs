@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using NA.DataLayer.DbContext;
+using NA.Domain.DomainClasses;
 using NA.Domain.Repository;
 
 namespace NA.Web.Repository
 {
-    public class ProductRespository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
-        private readonly IEFContext _db ;
-        public ProductRespository(IEFContext db )
+        private readonly IEFContext _db;
+        public ProductRepository(IEFContext db)
         {
             _db = db;
         }
         public Domain.DomainClasses.Product Get(Guid id)
         {
-            return _db.Products.FirstOrDefault(p => p.Id == id);
+            return GetAll().FirstOrDefault(p => p.Id == id);
         }
 
         public void Add(Domain.DomainClasses.Product product)
@@ -32,7 +34,12 @@ namespace NA.Web.Repository
 
         public IList<Domain.DomainClasses.Product> GetAll()
         {
-            return _db.Products.ToList();
+            IEnumerable<Product> antiqueProducts =
+                _db.Products.OfType<AntiqueProduct>().Include("Supplier");
+            IEnumerable<Product> designerProducts =
+                _db.Products.OfType<DesignerProduct>().Include("Supplier").Include("Designer");
+
+            return antiqueProducts.Concat(designerProducts).ToList();
         }
     }
 }
