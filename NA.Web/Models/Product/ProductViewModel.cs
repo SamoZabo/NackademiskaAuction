@@ -56,5 +56,7 @@ namespace NA.Web.Models.Product
         [Display(Name = "Designer")]
 
         public string DesignerName { get; set; }
+        public bool HasAuction { get; set; }
+
     }
 }

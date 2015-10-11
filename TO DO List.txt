@@ -1,4 +1,16 @@
 
+
+NÄSTA STEG:
+-Admin måste kunna lägga till auktioner
+-Lägga till customer
+-Lista auktioner
+-Bidda på auktion
+
+
+PLANERAT:
 -Identity (Inloggning och så..).
 -complete propeties (If needed).
 -tidshantering (stänga auktion via end time mot aktuella tiden).
+-client side validering - add product
+-kunna lägga till fler time epoker???
+

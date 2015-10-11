@@ -1,0 +1,138 @@
+﻿@model NA.Web.Models.Product.CreateProductViewModel
+
+@{
+    ViewBag.Title = "Create Product";
+}
+
+<h2>Create Product</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Provision, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Provision, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Provision, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StartPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductTypes, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ProductTypeId, Model.ProductTypes, "--Select Type--", new { id="producttype-ddl", @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.ProductTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupplierName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SupplierName, new { htmlAttributes = new { id = "supplier-txt", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SupplierName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-5 col-md-pull-1">
+                @Html.DropDownListFor(model => model.SupplierId, Model.Suppliers, "--Select Supplier--", new { id="supplier-ddl", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SupplierId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div id="designproduct-div" class="form-group">
+            @Html.LabelFor(model => model.DesignerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.DesignerName, new { htmlAttributes = new { id = "designer-txt", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DesignerName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-5 col-md-pull-1">
+                @Html.DropDownListFor(model => model.DesignerId, Model.Designers, "--Select Designer-- ", new { id="designer-ddl", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DesignerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div id="antiqueproduct-div" class="form-group">
+            @Html.LabelFor(model => model.TimeEpochs, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TimeEpochId, Model.TimeEpochs, "--Select Time epoch--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TimeEpochId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<style>
+    .hiddenClass {
+        display: none;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () {
+
+        updateProductType();
+
+        $('#supplier-ddl').change(function () {
+            if (($(this).find("option:selected").val())) {
+                $('#supplier-txt').val($(this).find("option:selected").text()).attr('readonly', 'readonly');    
+            } else {
+                $('#supplier-txt').val('').removeAttr('readonly', 'readonly');
+            }
+        });
+        $('#designer-ddl').change(function () {
+            if (($(this).find("option:selected").val())) {
+                $('#designer-txt').val($(this).find("option:selected").text()).attr('readonly', 'readonly');
+            } else {
+                $('#designer-txt').val('').removeAttr('readonly', 'readonly');
+            }
+        });
+
+        $('#producttype-ddl').change(function () {
+            updateProductType();
+        });
+    });
+
+    function updateProductType() {
+        var selectedType = $('#producttype-ddl').find('option:selected').text();
+        if (selectedType == "Antique") {
+            $('#antiqueproduct-div').removeClass('hiddenClass');
+            $('#designproduct-div').addClass('hiddenClass');
+        } else if (selectedType == "Mass" || selectedType == "Modern") {
+            $('#antiqueproduct-div').addClass('hiddenClass');
+            $('#designproduct-div').removeClass('hiddenClass');
+        } else {
+            $('#antiqueproduct-div').addClass('hiddenClass');
+            $('#designproduct-div').addClass('hiddenClass');
+        }
+    }
+
+</script>

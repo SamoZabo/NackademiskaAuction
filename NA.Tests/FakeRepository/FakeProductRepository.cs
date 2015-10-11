@@ -31,5 +31,15 @@ namespace NA.Tests.FakeRepository
         {
             return products;
         }
+
+        public IList<Designer> GetDesigners()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Supplier> GetSuppliers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

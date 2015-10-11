@@ -10,5 +10,7 @@ namespace NA.Domain.Repository
         void Add(Product product);
         void Update();
         IList<Product> GetAll();
+        IList<Designer> GetDesigners();
+        IList<Supplier> GetSuppliers();
     }
 }

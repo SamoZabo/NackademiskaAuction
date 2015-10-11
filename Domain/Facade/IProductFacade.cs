@@ -9,5 +9,7 @@ namespace NA.Domain.Facade
         Product Get(Guid productId);
         IList<Product> GetAll();
         bool Add(Product product);
+        IList<Designer> GetDesigners();
+        IList<Supplier> GetSuppliers();
     }
 }

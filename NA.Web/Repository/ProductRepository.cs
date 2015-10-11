@@ -41,5 +41,15 @@ namespace NA.Web.Repository
 
             return antiqueProducts.Concat(designerProducts).ToList();
         }
+
+        public IList<Designer> GetDesigners()
+        {
+            return _db.Designers.ToList();
+        }
+
+        public IList<Supplier> GetSuppliers()
+        {
+            return _db.Suppliers.ToList();
+        }
     }
 }

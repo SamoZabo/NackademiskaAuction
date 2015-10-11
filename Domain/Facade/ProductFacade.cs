@@ -33,5 +33,15 @@ namespace NA.Domain.Facade
             _productRepository.Add(product);
             return true;
         }
+
+        public IList<Designer> GetDesigners()
+        {
+            return _productRepository.GetDesigners();
+        }
+
+        public IList<Supplier> GetSuppliers()
+        {
+            return _productRepository.GetSuppliers();
+        }
     }
 }
