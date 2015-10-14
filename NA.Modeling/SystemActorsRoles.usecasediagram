@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="b520d322-0930-4cb3-bcfb-48ee5dde7469" name="SystemActorsRoles" linkedPackageId="8373a3b2-7adb-413e-a707-19920965be3f" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="b679a97b-184a-42d8-b2b7-782d36292028">
+      <elementDefinition Id="641b5edd-e40e-419e-96bd-575b9629c8f8" />
+      <body>-Register
+-LogIn
+-manage account
+-Browse auctions
+-View auction
+-Place bid
+-View bid history
+-logout
+
+</body>
+    </comment>
+    <comment Id="369dbb33-6ea0-4b70-9e33-3bfee97fe2c5">
+      <elementDefinition Id="5587ab4e-1343-454c-b698-6241c6daf2cc" />
+      <body>-Add product
+-Create auction
+-LogIn</body>
+    </comment>
+    <comment Id="06ab0945-be71-4aa0-b621-0320756d2ed5">
+      <elementDefinition Id="f2c2bb4e-cfaa-4044-af60-3a0f0900fc0b" />
+      <body>-Deliver products to "admin"
+-Get money back</body>
+    </comment>
+    <comment Id="eb09a740-9051-4ab5-949f-c280f01bf1bb">
+      <elementDefinition Id="d7d67fcc-0083-4aac-a7c4-61a5ddebe4f1" />
+      <body>-Starts action at specified time
+-Ends action at specified time or when acceptedPrice has been reached</body>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="36702e04-a71e-4863-ab4c-2d2d46c3f9a1" name="Customer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8f0f7de7-5dac-443b-ab2c-f2fba50b8be1" />
+        <targetEnds>
+          <association Id="87f3b5b3-57a5-4f7e-a427-66f277fee754" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Nackademiska Auction" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="13a99b42-cada-40b5-b391-007956cd71e6" LastKnownName="Nackademiska Auction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="71a12f96-7310-4d55-ac6a-8b1d4890dc23" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ad295d19-28a5-48ab-9829-0f9bf0bb9c42" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7189eb4e-3977-4327-99e9-48d572a8512c" name="Nackademiska Auction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="157b5f51-68a0-4ef0-811c-87393dc6b0aa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b4eb26f1-6335-4106-896b-308508039096" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2b49a3ad-0ee4-4c5c-a330-5aee6f96c7a8" name="Owner" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3568c381-debd-47b8-8cbe-86c6e7bd01f0" />
+        <targetEnds>
+          <association Id="5272cc21-7b0a-4d98-bee2-eb478aa2e8ff" isDerived="false" sourceEndRoleName="Actor11" targetEndRoleName="Nackademiska Auction" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="13a99b42-cada-40b5-b391-007956cd71e6" LastKnownName="Nackademiska Auction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d17e7eef-b624-40c1-b183-d7e254cd2d6d" name="Actor11" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="acd2588b-98c7-45ac-b4a9-396cf331f93f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cda1905e-c550-476a-a33d-fd97b623de24" name="Nackademiska Auction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f8e65b5d-8a81-4466-a9ba-62d42201f8ef" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="24e3bee9-92b7-4f86-95c0-b7a78274bbab" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2a3fdc9b-ebb3-4dc9-9fa3-e47de4f1867a" name="Supplier" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="27ebf5d3-d092-4e67-b769-51fce40e0169" />
+        <targetEnds>
+          <association Id="21f6a789-ac0b-4f9c-974b-371dea683547" isDerived="false" sourceEndRoleName="Supplier" targetEndRoleName="Owner" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b49a3ad-0ee4-4c5c-a330-5aee6f96c7a8" LastKnownName="Owner" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3de39123-8297-4b71-b1b6-baa7f45c06cb" name="Supplier" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="98513f46-2d20-4561-be88-86e066471192" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5ba4abde-36cd-47c4-8fef-77c78edbf007" name="Owner" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e2130c59-9b03-429a-8b47-a775049732cf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="67b39151-9628-4a69-874b-084869e32e4f" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="13a99b42-cada-40b5-b391-007956cd71e6" name="Nackademiska Auction" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="a5a1d04a-b12f-4cd5-ba70-7c68dafe5764">
+            <elementDefinition Id="815f07fe-fb67-4d15-9057-a548fc2c4e93" />
+            <body>                             
+
+
+
+
+                               Web Auction</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="36b0ffda-9b65-46bf-a087-9b1eb771f466" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="861d8600-dc51-4e9b-86ff-fa5030afcd29" name="Time" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3546eae9-faaf-43da-aee0-07a4364e99da" />
+        <targetEnds>
+          <association Id="ee7fe6ed-3cca-41e7-85bb-224a3b1a6332" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Nackademiska Auction" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="13a99b42-cada-40b5-b391-007956cd71e6" LastKnownName="Nackademiska Auction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1a8fbfa6-1460-4392-a634-97db117fb962" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="488de222-190c-4f4f-8528-4987d312bbcc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e1d3029c-e8bb-402c-95c1-e8b21fa07010" name="Nackademiska Auction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="93878368-75d6-4392-87b0-4e37cd6b392d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="874e73a8-3187-41b5-a278-6421d12eb7c5" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="8373a3b2-7adb-413e-a707-19920965be3f" name="NA.Modeling">
+    <elementDefinition Id="397ff050-2025-4e73-a766-a002049d3289" />
+    <profileInstances>
+      <packageHasProfileInstances Id="0bed8aa0-9465-495a-bdb2-cc5160f11bdf">
+        <profileInstance Id="75e81838-bf4b-4410-bac6-d702fb60dfae" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="9125568b-f618-457f-a686-73f0c1f2f670">
+        <profileInstance Id="b456fc3e-f4f0-45a6-a413-70a6e7d96c6c" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="2d1eacf6-721e-4d30-842f-f802aa3aa503">
+        <profileInstance Id="b61519f5-4f2e-4cc7-9431-ecc6b07ab4bb" name="CSharpProfile">
+          <elementDefinition Id="593310b7-965c-466f-99cb-b8128350e054" />
+        </profileInstance>
+        <elementDefinition Id="b136b4c3-22e1-4d5c-8d6b-ac156bd633f4" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

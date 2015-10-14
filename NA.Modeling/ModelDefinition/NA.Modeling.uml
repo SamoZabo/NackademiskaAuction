@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="397ff050-2025-4e73-a766-a002049d3289"
+  name="NA.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="641b5edd-e40e-419e-96bd-575b9629c8f8">
+      <body>-Register
+-LogIn
+-manage account
+-Browse auctions
+-View auction
+-Place bid
+-View bid history
+-logout
+
+</body>
+    </comment>
+    <comment
+      Id="5587ab4e-1343-454c-b698-6241c6daf2cc">
+      <body>-Add product
+-Create auction
+-LogIn</body>
+    </comment>
+    <comment
+      Id="815f07fe-fb67-4d15-9057-a548fc2c4e93">
+      <body>                             
+
+
+
+
+                               Web Auction</body>
+    </comment>
+    <comment
+      Id="f2c2bb4e-cfaa-4044-af60-3a0f0900fc0b">
+      <body>-Deliver products to "admin"
+-Get money back</body>
+    </comment>
+    <comment
+      Id="d7d67fcc-0083-4aac-a7c4-61a5ddebe4f1">
+      <body>-Starts action at specified time
+-Ends action at specified time or when acceptedPrice has been reached</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="b136b4c3-22e1-4d5c-8d6b-ac156bd633f4">
+      <profileInstance
+        Id="593310b7-965c-466f-99cb-b8128350e054"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0de91b13-b42c-45b2-b505-dbe6fd2c0ca2"
+        LastKnownName="NA"
+        LastKnownLocation="Package1_1501.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="473cc713-898a-46be-ba36-fd5573863957"
+        LastKnownName="System"
+        LastKnownLocation="Package3_1501.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="8f0f7de7-5dac-443b-ab2c-f2fba50b8be1"
+        name="Customer"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b4eb26f1-6335-4106-896b-308508039096"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="Nackademiska Auction"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="36b0ffda-9b65-46bf-a087-9b1eb771f466"
+              LastKnownName="Nackademiska Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ad295d19-28a5-48ab-9829-0f9bf0bb9c42"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="157b5f51-68a0-4ef0-811c-87393dc6b0aa"
+                  name="Nackademiska Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="3568c381-debd-47b8-8cbe-86c6e7bd01f0"
+        name="Owner"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="24e3bee9-92b7-4f86-95c0-b7a78274bbab"
+            isDerived="false"
+            sourceEndRoleName="Actor11"
+            targetEndRoleName="Nackademiska Auction"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="36b0ffda-9b65-46bf-a087-9b1eb771f466"
+              LastKnownName="Nackademiska Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="acd2588b-98c7-45ac-b4a9-396cf331f93f"
+                  name="Actor11"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f8e65b5d-8a81-4466-a9ba-62d42201f8ef"
+                  name="Nackademiska Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="27ebf5d3-d092-4e67-b769-51fce40e0169"
+        name="Supplier"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="67b39151-9628-4a69-874b-084869e32e4f"
+            isDerived="false"
+            sourceEndRoleName="Supplier"
+            targetEndRoleName="Owner"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="3568c381-debd-47b8-8cbe-86c6e7bd01f0"
+              LastKnownName="Owner"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="98513f46-2d20-4561-be88-86e066471192"
+                  name="Supplier"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e2130c59-9b03-429a-8b47-a775049732cf"
+                  name="Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="36b0ffda-9b65-46bf-a087-9b1eb771f466"
+        name="Nackademiska Auction"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="37e72314-14fa-471b-a170-9ac7c28d7468"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="09bc7b24-6aa3-43f9-98a8-eb99370fc320"
+        name="customer"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e900df51-0ae6-4d6d-a478-1f596342776f"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="05cddb82-f8bf-4409-8aef-f68c484eaf32"
+              LastKnownName="Register"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61c72611-02f9-4034-9bba-c2f1bf9cbbc9"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e4cd5ee5-307d-4e12-ab2a-cfbff6acb210"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="866f24ee-d47e-4172-897d-7fec46ed82b0"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="UseCase11"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8afe9219-0718-490e-93d2-982a049e080f"
+              LastKnownName="Manage account"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="30ca5ef6-189b-439a-9b8c-a72a13ea18e3"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="889f5181-2a63-413a-bd48-9b9e7ad72837"
+                  name="UseCase11"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9c62d579-a05c-441f-8aa2-a49899ff1e6f"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="LogIn"
+            isLeaf="false"
+            name="if already exists"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="683ab5d3-295d-4529-8ec3-2c841c56220e"
+              LastKnownName="LogIn"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cfbe26d6-fd00-43e7-8c7c-260f08912bb5"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e991de55-00c1-4a16-a56f-7493011a5c89"
+                  name="LogIn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="50315a22-fe71-49bf-be2a-65355ce312dd"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="Manage account1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e9aa22d8-5a23-461a-a450-515e6299d941"
+              LastKnownName="Browse auctions"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7139b4fe-5883-4e6b-8aa6-3485d889081a"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2fadc65-c8dd-4d01-80e1-3171ece5e2d8"
+                  name="Manage account1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="99fc7372-efcf-4a54-a074-1fafda93348c"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="Manage account11"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ec016459-8d14-4d84-b98a-4ee171687b8c"
+              LastKnownName="View Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee67572e-8efc-4a04-a456-8cef66ef5263"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4cace3c8-c3bc-4e10-84ed-a7e57fc8da35"
+                  name="Manage account11"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="eb8e96d8-2ee7-4c52-8a87-59f3d9741a4f"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="Manage account12"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9ef5b10d-5eff-4020-867b-fc281811c822"
+              LastKnownName="Place bid"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3ac148e8-3c81-4d18-a92b-a77681000f2b"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="72b35350-9018-40b5-bd38-64c9f9e25292"
+                  name="Manage account12"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b654f645-5fcd-4a03-a532-6836b6eba7b7"
+            isDerived="false"
+            sourceEndRoleName="customer"
+            targetEndRoleName="Manage account13"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fdbc3dfd-aa92-40ca-831e-35acab537e66"
+              LastKnownName="Buy at accrepted"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dfa1ed02-4934-46f9-bd79-e8cda2436220"
+                  name="customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2033fbb6-938c-414e-a80b-97094ffc1a3d"
+                  name="Manage account13"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ea39ecc8-70cd-4164-848d-39283e761738"
+        name="Owner"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c09e5e6e-1e6b-4711-aee2-7860518e2000"
+            isDerived="false"
+            sourceEndRoleName="Owner"
+            targetEndRoleName="UseCase110"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9c72da7e-1153-49f0-a362-d408ef1c001c"
+              LastKnownName="Add Product"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="49e2bbb2-c6cb-4579-af72-2be163a37897"
+                  name="Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c4bdce95-5614-400f-a463-83ecbe206690"
+                  name="UseCase110"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9b4d9c7f-2e94-4101-ab6f-83ecb773a848"
+            isDerived="false"
+            sourceEndRoleName="Owner"
+            targetEndRoleName="Create Auction"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e499b2d6-86a5-4b72-82e1-bb09f5ad9258"
+              LastKnownName="Create Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0defaadf-52da-4032-8fdc-36b123971a36"
+                  name="Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51ee3e55-9c7f-4526-9138-fd015ebe62ed"
+                  name="Create Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="0cb4c5f1-49d8-4dc5-9686-836bb5e194a6"
+        name="Actor12"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="05cddb82-f8bf-4409-8aef-f68c484eaf32"
+        name="Register"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="1b61ed6e-10fe-487c-a2c0-431705b03201">
+            <useCaseMoniker
+              Id="683ab5d3-295d-4529-8ec3-2c841c56220e"
+              LastKnownName="LogIn"
+              LastKnownLocation="NA.Modeling.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8afe9219-0718-490e-93d2-982a049e080f"
+        name="Manage account"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="434038c2-67e6-472a-a4a2-1615f465bc26"
+        name="UseCase12"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="41fd3ae1-5347-4a33-abf2-4c908d5a4bd8"
+        name="UseCase13"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="54e20763-364b-4a28-920d-fe419ccd7aba"
+        name="UseCase14"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="815993f9-0c7c-4788-9647-b9ee9a813515"
+        name="UseCase15"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c332bc10-71df-4d25-9770-b1624eb58102"
+        name="UseCase16"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9bd19f94-2e51-406e-b307-9eb070ce1a6e"
+        name="Add Antique Product"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6a9356a2-653b-4799-9894-2ca4c5c05fcf"
+        name="Add Mass Product"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9fc0b572-2ce4-4e49-a15b-9ec44b5aaf8e"
+        name="Add Modern PRoduct"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9c72da7e-1153-49f0-a362-d408ef1c001c"
+        name="Add Product"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="5802afb9-d17d-4082-b9d1-55a610a01c0b">
+            <useCaseMoniker
+              Id="9bd19f94-2e51-406e-b307-9eb070ce1a6e"
+              LastKnownName="Add Antique Product"
+              LastKnownLocation="NA.Modeling.uml" />
+          </extend>
+          <extend
+            Id="db01fa0c-6d99-45c9-ba49-31a36eb141cf">
+            <useCaseMoniker
+              Id="6a9356a2-653b-4799-9894-2ca4c5c05fcf"
+              LastKnownName="Add Mass Product"
+              LastKnownLocation="NA.Modeling.uml" />
+          </extend>
+          <extend
+            Id="c4fef1fb-dd81-4f5a-aeb4-96236cb83ffc">
+            <useCaseMoniker
+              Id="9fc0b572-2ce4-4e49-a15b-9ec44b5aaf8e"
+              LastKnownName="Add Modern PRoduct"
+              LastKnownLocation="NA.Modeling.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e499b2d6-86a5-4b72-82e1-bb09f5ad9258"
+        name="Create Auction"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8663820d-3940-4418-9ab1-e80c35b1a490"
+        name="UseCase2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="683ab5d3-295d-4529-8ec3-2c841c56220e"
+        name="LogIn"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="20eeec34-b505-4155-94fc-1988cbb79c80"
+        name="UseCase111"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="3546eae9-faaf-43da-aee0-07a4364e99da"
+        name="Time"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="874e73a8-3187-41b5-a278-6421d12eb7c5"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="Nackademiska Auction"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="36b0ffda-9b65-46bf-a087-9b1eb771f466"
+              LastKnownName="Nackademiska Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="488de222-190c-4f4f-8528-4987d312bbcc"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="93878368-75d6-4392-87b0-4e37cd6b392d"
+                  name="Nackademiska Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e9aa22d8-5a23-461a-a450-515e6299d941"
+        name="Browse auctions"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ec016459-8d14-4d84-b98a-4ee171687b8c"
+        name="View Auction"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9ef5b10d-5eff-4020-867b-fc281811c822"
+        name="Place bid"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fdbc3dfd-aa92-40ca-831e-35acab537e66"
+        name="Buy at accrepted"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="abf11a31-f4bc-49d4-bb98-e763cdd6d145"
+        name="Time"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="dddac5fe-3300-4fa6-bf02-ba47fd8de453"
+            isDerived="false"
+            sourceEndRoleName="Time"
+            targetEndRoleName="Starts auction"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ba7bde3a-e88d-4881-899b-d64fb27aeb12"
+              LastKnownName="Starts auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ed583811-eb25-4edf-944f-4fa1eafbe444"
+                  name="Time"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e04bff1-50f2-41b1-82ef-f40fbee58861"
+                  name="Starts auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="892051b4-ca60-4141-9f92-4fd585bc3242"
+            isDerived="false"
+            sourceEndRoleName="Time"
+            targetEndRoleName="End Auction"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1715a7d1-f18b-4c76-b462-c84edf8d0ef0"
+              LastKnownName="End Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b8668da7-1fb4-4652-b447-5a49593b196a"
+                  name="Time"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f31937de-88b8-454d-9e74-1e9ddaed699e"
+                  name="End Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ba7bde3a-e88d-4881-899b-d64fb27aeb12"
+        name="Starts auction"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1715a7d1-f18b-4c76-b462-c84edf8d0ef0"
+        name="End Auction"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="76fc9424-664f-4e59-83bd-b3afadfc3734"
+            isDerived="false"
+            sourceEndRoleName="End Auction"
+            targetEndRoleName="End Auction"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1715a7d1-f18b-4c76-b462-c84edf8d0ef0"
+              LastKnownName="End Auction"
+              LastKnownLocation="NA.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07089d38-eb89-40a9-8d67-647ba250d849"
+                  name="End Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f1694dac-961d-4228-ae6f-a11c7ad608f4"
+                  name="End Auction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d011a233-830e-497c-8b53-6dd480fb3d3b"
+            LastKnownName="Subsystem1"
+            LastKnownLocation="NA.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

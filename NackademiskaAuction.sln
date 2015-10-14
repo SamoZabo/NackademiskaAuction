@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TO DO", "TO DO", "{2240E0F6
 		TO DO List.txt = TO DO List.txt
 	EndProjectSection
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "NA.Modeling", "NA.Modeling\NA.Modeling.modelproj", "{4DCC3CE0-6358-48C2-A4EB-56E31013EBDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DCC3CE0-6358-48C2-A4EB-56E31013EBDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DCC3CE0-6358-48C2-A4EB-56E31013EBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DCC3CE0-6358-48C2-A4EB-56E31013EBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DCC3CE0-6358-48C2-A4EB-56E31013EBDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
