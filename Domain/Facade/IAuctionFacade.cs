@@ -8,8 +8,10 @@ namespace NA.Domain.Facade
     {
         void Create(Guid acutionId, Guid productId, DateTime startTime, DateTime endTime);
         Auction Get(Guid id);
+        IList<Auction> GetByProductId(Guid productId);
         void PlaceBid(Guid bidId, Guid auctionId, decimal amount, DateTime bidTime, Customer customer);
         Bid EndAuction(Guid auctionId);
+
         IList<Auction> GetAll();
         IList<Auction> GetAllActive();
     }

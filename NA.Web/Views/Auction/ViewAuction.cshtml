@@ -1,0 +1,70 @@
+﻿@model NA.Web.Models.Auction.ShowAuctionViewModel
+
+<div class="row">
+    <h2>Auction</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptedPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalBid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalBid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WinningBid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WinningBid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+    </dl>
+    <div class="col-md-6">
+        @Html.Partial("_Bids", Model.Bids)
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List","Index", "Product")
+</p>

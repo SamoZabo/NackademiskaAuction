@@ -110,5 +110,10 @@ namespace NA.Domain.Facade
         {
             return GetAll().Where(a => a.IsActive).ToList();
         }
+
+        public IList<Auction> GetByProductId(Guid productId)
+        {
+            return GetAll().Where(a => a.Product.Id == productId).ToList();
+        }
     }
 }

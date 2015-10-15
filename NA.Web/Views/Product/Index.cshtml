@@ -69,11 +69,11 @@
             <td>
                 @if (item.HasAuction)
                 {
-                    @Html.ActionLink("Show auction", "ShowAcution", "Auction", new { productId = item.Id }, null)
+                    @Html.ActionLink("View auction", "ViewAuction", "Auction", new { productId = item.Id }, null)
                 }
                 else
                 {
-                    @Html.ActionLink("Add auction", "CreateAuction", "Auction", new { productId = item.Id }, null)
+                    @Html.ActionLink("Add auction", "Create", "Auction", new { productId = item.Id }, null)
                 }
             </td>
         </tr>

@@ -29,7 +29,7 @@ namespace NA.Web.Controllers
             var products = _productFacade.GetAll().Select(p => new ProductViewModel(p)).ToList();
             foreach (var product in products)
             {
-                product.HasAuction = _auctionFacade.GetAll().Any(a => a.Product.Id == product.Id);
+                product.HasAuction = _auctionFacade.GetByProductId(product.Id).Any();
             }
             return View(products);
         }

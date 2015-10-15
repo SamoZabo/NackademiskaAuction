@@ -17,12 +17,12 @@ namespace NA.Web.Repository
         }
         public Domain.DomainClasses.Auction Get(Guid id)
         {
-            return _db.Auctions.Include("Product").FirstOrDefault(a => a.Id == id);
+            return _db.Auctions.Include("Product").Include("Bids").Include("Bids.Customer").FirstOrDefault(a => a.Id == id);
         }
 
         public IList<Domain.DomainClasses.Auction> GetAuctions()
         {
-            return _db.Auctions.Include("Product").ToList();
+            return _db.Auctions.Include("Product").Include("Bids").Include("Bids.Customer").ToList();
         }
 
         public void AddBid(Guid auctionId, Domain.DomainClasses.Bid bid)

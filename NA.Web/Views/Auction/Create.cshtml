@@ -1,0 +1,74 @@
+﻿@model NA.Web.Models.Auction.CreateAuctionViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(a => a.ProductId)
+    <div class="form-horizontal">
+        <h3>Create auction for: @Model.ProductName</h3>
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Start, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+              @*  @Html.EditorFor(model => model.Start, new {htmlAttributes = new {@class = "form-control", id="startDate"}})*@
+                <div class='input-group date' style="width: 300px;" id='datetimepicker6'>
+                    <input type='text' name="Start" class="form-control" aria-describedby="basic-addon1" />
+                    <span class="input-group-addon" id="basic-addon1">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                
+                @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.End, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.End, new { htmlAttributes = new { @class = "form-control", id = "endDate" } })*@
+
+                <div class='input-group date' style="width: 300px;" id='datetimepicker7'>
+                    <input type='text' name="End" class="form-control" aria-describedby="basic-addon2" />
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(model => model.End, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>
+}
