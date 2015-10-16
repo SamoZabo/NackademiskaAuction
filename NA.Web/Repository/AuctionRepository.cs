@@ -34,6 +34,7 @@ namespace NA.Web.Repository
 
         public void AddAuction(Domain.DomainClasses.Auction auction)
         {
+            auction.Product = _db.Products.First(p => auction.Product.Id == p.Id);
             _db.Auctions.Add(auction);
             Update();
         }

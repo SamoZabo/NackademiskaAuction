@@ -1,0 +1,30 @@
+﻿@model NA.Web.Models.Home.AuctionListViewModel
+
+
+<div class="list-group col-md-6">
+    @Html.HiddenFor(m => m.AuctionId)
+    <a href="@Url.Action("ViewAuction", new{id=@Model.AuctionId})" class="list-group-item">
+        <div class="row">
+            <h3 class="list-group-item-heading col-md-10">@Model.ProductName</h3>
+            <div class="col-md-2">
+                <span class="badge">Bids: @Model.TotalBids</span>
+            </div>
+        </div>
+        <hr style="margin-top: 4px;" />
+        <p class="list-group-item-text">
+
+            @Html.LabelFor(model => model.CurrentPrice):
+
+            @Html.DisplayFor(model => model.CurrentPrice)<br />
+
+            @Html.LabelFor(model => model.AcceptedPrice):
+
+            @Html.DisplayFor(model => model.AcceptedPrice)<br />
+
+            @Html.LabelFor(model => model.RemainingTime):
+
+            @Html.DisplayFor(model => model.RemainingTime)<br />
+
+        </p>
+    </a>
+</div>

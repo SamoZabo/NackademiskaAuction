@@ -153,6 +153,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,6 +161,7 @@
     <Compile Include="Models\Auction\BidViewModel.cs" />
     <Compile Include="Models\Auction\CreateAuctionViewModel.cs" />
     <Compile Include="Models\Auction\ShowAuctionViewModel.cs" />
+    <Compile Include="Models\Home\AuctionListViewModel.cs" />
     <Compile Include="Models\Product\CreateProductViewModel.cs" />
     <Compile Include="Models\Product\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +182,8 @@
     <Content Include="Views\Auction\_Bids.cshtml" />
     <Content Include="Views\Shared\ErrorView\ErrorView.cshtml" />
     <Content Include="Views\Auction\Create.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_AuctionList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

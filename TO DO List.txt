@@ -1,13 +1,15 @@
 
 
 NÄSTA STEG:
--Admin måste kunna lägga till auktioner
--Lägga till customer
--Lista auktioner
--Bidda på auktion
+-TIMER FÖR ELIN på auction tiden.
+-Avsluta auktionen när tiden är slut.
+-Kod för ViewAuction.
+-Bidda på auktion.
+
 
 
 PLANERAT:
+-Create customer
 -Identity (Inloggning och så..).
 -complete propeties (If needed).
 -tidshantering (stänga auktion via end time mot aktuella tiden).

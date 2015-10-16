@@ -1,0 +1,15 @@
+﻿@model IEnumerable<NA.Web.Models.Home.AuctionListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Auctions</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        @Html.Partial("_AuctionList", item)
+    }
+</div>
+
