@@ -19,7 +19,7 @@ namespace NA.Web.Models.Home
                 ? winningBid.Amount 
                 : auction.Product.GetStartPrice();
             AcceptedPrice = auction.AcceptedPrice;
-            RemainingTime = auction.EndTime - DateTime.Now;
+            EndTime = auction.EndTime;
         }
 
         public Guid AuctionId { get; set; }
@@ -37,7 +37,7 @@ namespace NA.Web.Models.Home
         public decimal AcceptedPrice { get; set; }
 
         [Display(Name = "Remaining Time")]
-        public TimeSpan RemainingTime { get; set; }
+        public DateTime EndTime { get; set; }
 
     }
 }

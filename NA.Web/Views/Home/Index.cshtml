@@ -4,6 +4,8 @@
     ViewBag.Title = "Index";
 }
 
+
+
 <h2>Auctions</h2>
 
 <div class="row">
@@ -12,4 +14,10 @@
         @Html.Partial("_AuctionList", item)
     }
 </div>
+
+@section scripts{
+    <link href="~/Content/jquery.countdown.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.plugin.min.js"></script>
+<script src="~/Scripts/jquery.countdown.min.js"></script>
+}
 

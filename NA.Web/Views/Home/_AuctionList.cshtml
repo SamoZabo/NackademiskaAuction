@@ -1,9 +1,20 @@
 ﻿@model NA.Web.Models.Home.AuctionListViewModel
 
 
+<style>
+    .remaining {
+        background-color: transparent !important;
+        border: none !important;
+        color: green;
+    }
+    .highlight {
+        color: red;
+    }
+</style>
+
 <div class="list-group col-md-6">
     @Html.HiddenFor(m => m.AuctionId)
-    <a href="@Url.Action("ViewAuction", new{id=@Model.AuctionId})" class="list-group-item">
+    <a href="@Url.Action("ViewAuction", new {id = @Model.AuctionId})" class="list-group-item">
         <div class="row">
             <h3 class="list-group-item-heading col-md-10">@Model.ProductName</h3>
             <div class="col-md-2">
@@ -11,20 +22,49 @@
             </div>
         </div>
         <hr style="margin-top: 4px;" />
-        <p class="list-group-item-text">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="list-group-item-text">
 
-            @Html.LabelFor(model => model.CurrentPrice):
+                    @Html.LabelFor(model => model.CurrentPrice):
 
-            @Html.DisplayFor(model => model.CurrentPrice)<br />
+                    @Html.DisplayFor(model => model.CurrentPrice)<br />
 
-            @Html.LabelFor(model => model.AcceptedPrice):
+                    @Html.LabelFor(model => model.AcceptedPrice):
 
-            @Html.DisplayFor(model => model.AcceptedPrice)<br />
+                    @Html.DisplayFor(model => model.AcceptedPrice)<br />
+                </p>
+            </div>
 
-            @Html.LabelFor(model => model.RemainingTime):
-
-            @Html.DisplayFor(model => model.RemainingTime)<br />
-
-        </p>
+            <div class="col-md-6">
+                <div class="remaining" id="counter_@Model.AuctionId"></div>
+            </div>
+        </div>
     </a>
 </div>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+
+        var year =@Model.EndTime.Year,
+            month = @Model.EndTime.Month -1,
+            day = @Model.EndTime.Day,
+            hour=@Model.EndTime.Hour,
+            minute = @Model.EndTime.Minute,
+            seconds=@Model.EndTime.Second;
+
+        $("#counter_@(Model.AuctionId)").countdown({
+            until: new Date(year, month, day, hour, minute, seconds),
+            onTick: lastFiveMinutes
+        });
+    });
+    function lastFiveMinutes(time) {
+        if ($.countdown.periodsToSeconds(time) === 300) {
+            $(this).addClass('highlight');
+        }
+    }
+</script>
+

@@ -20,7 +20,7 @@ namespace NA.Web.Controllers
         public ActionResult Index()
         {
             var auctions = _auctionFacade.GetAllActive().Select(a => new AuctionListViewModel(a))
-                .OrderBy(b => b.RemainingTime);
+                .OrderBy(b => b.EndTime);
             return View(auctions);
         }
 
