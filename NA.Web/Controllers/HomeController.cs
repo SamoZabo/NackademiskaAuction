@@ -26,6 +26,7 @@ namespace NA.Web.Controllers
 
         public ActionResult ViewAuction(Guid id)
         {
+
             return View();
         }
     }

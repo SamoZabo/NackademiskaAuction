@@ -167,6 +167,7 @@
     <Compile Include="Models\Auction\CreateAuctionViewModel.cs" />
     <Compile Include="Models\Auction\ShowAuctionViewModel.cs" />
     <Compile Include="Models\Home\AuctionListViewModel.cs" />
+    <Compile Include="Models\Home\AuctionViewModel.cs" />
     <Compile Include="Models\Product\CreateProductViewModel.cs" />
     <Compile Include="Models\Product\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -103,7 +103,17 @@ namespace NA.Domain.Facade
 
         public IList<Auction> GetAll()
         {
-            return _auctionRespository.GetAuctions() ?? new List<Auction>();
+            var auctions =_auctionRespository.GetAuctions() ?? new List<Auction>();
+            foreach (var auction in auctions)
+            {
+                var active = auction.StartTime < DateTime.Now && auction.EndTime > DateTime.Now;
+                if (auction.IsActive != active)
+                {
+                    auction.IsActive = active;
+                    _auctionRespository.Update();
+                }
+            }
+            return auctions;
         }
 
         public IList<Auction> GetAllActive()
