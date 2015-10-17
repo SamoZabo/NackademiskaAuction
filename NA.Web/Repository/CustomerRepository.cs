@@ -37,5 +37,11 @@ namespace NA.Web.Repository
         {
             _db.SaveDbChanges();
         }
+
+
+        public Domain.DomainClasses.Customer GetByEmail(string email)
+        {
+            return _db.Customers.FirstOrDefault(c => c.Email == email);
+        }
     }
 }

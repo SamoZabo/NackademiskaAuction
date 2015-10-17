@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,12 @@ namespace NA.Domain.Facade
     {
         Customer Get(Guid id);
         IList<Customer> GetAll();
-        void Add(Guid id, string firstName, string lastName, IList<Address> addresses);
+        Customer GetByEmail(string email);
+        void AuthenticateRequest(HttpContextBase httpContextBase);
+        Customer LogIn(string email, string password);
+        void Logout();
+        void ChangePassword(string email, string currentPassword, string newPassword, string confirmNewPassword);
+        void Add(Guid id, string firstName, string lastName, IList<Address> addresses, string password, string confirmPassword, string email);
         void Update(Customer customer);
     }
 }

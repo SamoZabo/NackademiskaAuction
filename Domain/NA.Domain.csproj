@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,7 @@
     <Compile Include="DomainClasses\ModernProduct.cs" />
     <Compile Include="DomainClasses\Product.cs" />
     <Compile Include="Exception\AuctionException.cs" />
+    <Compile Include="Exception\CustomerException.cs" />
     <Compile Include="Facade\AuctionFacade.cs" />
     <Compile Include="Facade\CustomerFacade.cs" />
     <Compile Include="Facade\IAuctionFacade.cs" />
@@ -58,6 +60,9 @@
     <Compile Include="Facade\ProductFacade.cs" />
     <Compile Include="Factory\IProductFactory.cs" />
     <Compile Include="Factory\ProductFactory.cs" />
+    <Compile Include="Identity\IAuth.cs" />
+    <Compile Include="Identity\IPasswordHandler.cs" />
+    <Compile Include="Identity\PasswordHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainClasses\Supplier.cs" />
     <Compile Include="Repository\IAddressRepository.cs" />

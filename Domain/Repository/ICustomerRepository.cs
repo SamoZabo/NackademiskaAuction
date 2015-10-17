@@ -11,6 +11,7 @@ namespace NA.Domain.Repository
     {
         Customer Get(Guid id);
         IList<Customer> GetAll();
+        Customer GetByEmail(string email);
         void Add(Customer customer);
         void Update();
     }
