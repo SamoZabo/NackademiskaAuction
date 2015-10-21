@@ -4,7 +4,9 @@ using Microsoft.Practices.Unity.Configuration;
 using NA.DataLayer.DbContext;
 using NA.Domain.Facade;
 using NA.Domain.Factory;
+using NA.Domain.Identity;
 using NA.Domain.Repository;
+using NA.Web.Identity;
 using NA.Web.Repository;
 
 namespace NA.Web.App_Start
@@ -48,6 +50,8 @@ namespace NA.Web.App_Start
             container.RegisterType<IProductFacade, ProductFacade>();
             container.RegisterType<IProductFactory, ProductFactory>();
             container.RegisterType<IEFContext, EFContext>();
+            container.RegisterType<IPasswordHandler, PasswordHandler>();
+            container.RegisterType<IAuth, FormsAuthenticationAdapter>();
 
 
             // TODO: Register your types here

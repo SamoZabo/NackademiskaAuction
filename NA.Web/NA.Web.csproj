@@ -160,9 +160,11 @@
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="CustomFilters\CustomerAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Identity\FormsAuthenticationAdapter.cs" />
     <Compile Include="Models\Auction\BidViewModel.cs" />
     <Compile Include="Models\Auction\CreateAuctionViewModel.cs" />
     <Compile Include="Models\Auction\ShowAuctionViewModel.cs" />

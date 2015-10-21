@@ -30,18 +30,12 @@ namespace NA.Domain.Facade
 
         public Customer Get(Guid id)
         {
-            return _customerRepository.Get(id); 
+            return _customerRepository.Get(id);
         }
 
         public IList<DomainClasses.Customer> GetAll()
         {
-           return _customerRepository.GetAll();
-        }
-
-        public void Add(Guid id, string firstName, string lastName, IList<DomainClasses.Address> addresses)
-        {
-            var customer = new Customer {Id = id, FirstName = firstName, LastName = lastName, Addresses = addresses};
-            _customerRepository.Add(customer);
+            return _customerRepository.GetAll();
         }
 
         public void Update(Customer customer)
@@ -50,7 +44,7 @@ namespace NA.Domain.Facade
 
             foreach (var address in oldAddresses)
                 _addressRepository.Remove(address.Id);
-            
+
             _customerRepository.Update();
         }
 
@@ -96,12 +90,60 @@ namespace NA.Domain.Facade
 
         public void ChangePassword(string email, string currentPassword, string newPassword, string confirmNewPassword)
         {
-            throw new NotImplementedException();
+            var customer = _customerRepository.GetByEmail(email);
+            if (customer == null)
+            {
+                throw new CustomerNotFoundException("Invalid email");
+            }
+
+            if (!_passwordHandler.Validate(currentPassword, customer.PasswordSalt, customer.PasswordHash))
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+
+            if (newPassword != confirmNewPassword || newPassword.Length < 1)
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+
+            byte[] newSalt, newHash;
+
+            _passwordHandler.SaltAndHash(newPassword, out newSalt, out newHash);
+
+            customer.PasswordHash = newHash;
+            customer.PasswordSalt = newSalt;
+            _customerRepository.Update();
         }
 
-        public void Add(Guid id, string firstName, string lastName, IList<Address> addresses, string password, string confirmPassword, string email)
+        public void Add(Guid id, string firstName, string lastName, IList<Address> addresses,
+            string password, string confirmPassword, string email)
         {
-            throw new NotImplementedException();
+            var customer = _customerRepository.GetByEmail(email);
+            if (customer != null)
+            {
+                throw new EmailExistsException(String.Format("{0} is already existing", email));
+            }
+
+            if (password != confirmPassword || password.Length < 1)
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+
+            byte[] salt, hash;
+            _passwordHandler.SaltAndHash(password, out salt, out hash);
+
+            customer = new Customer
+            {
+                Id = id, 
+                FirstName = firstName, 
+                LastName = lastName, 
+                Addresses = addresses,
+                Email = email,
+                PasswordSalt=salt,
+                PasswordHash = hash,
+                Role = Role.Customer
+            };
+            _customerRepository.Add(customer);
         }
     }
 }

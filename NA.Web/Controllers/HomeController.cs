@@ -12,7 +12,8 @@ namespace NA.Web.Controllers
     {
         private readonly IAuctionFacade _auctionFacade;
 
-        public HomeController(IAuctionFacade auctionFacade)
+        public HomeController(IAuctionFacade auctionFacade, ICustomerFacade customerFacade)
+            : base(customerFacade)
         {
             _auctionFacade = auctionFacade;
         }

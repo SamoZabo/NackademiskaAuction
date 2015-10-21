@@ -20,7 +20,7 @@ namespace NA.DBSetup
             IProductRepository repo = new ProductRepository(ef);
             ICustomerRepository cusRepo = new CustomerRepository(ef);
             IAddressRepository adrRepo = new AddressRepository(ef);
-            var facade = new CustomerFacade(cusRepo, adrRepo);
+            var facade = new CustomerFacade(cusRepo, adrRepo, null, null);
 
             var customer = facade.GetAll().First();
 
