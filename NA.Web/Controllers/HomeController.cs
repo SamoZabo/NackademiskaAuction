@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NA.Domain.DomainClasses;
 using NA.Domain.Facade;
+using NA.Web.CustomFilters;
 using NA.Web.Models.Home;
 
 namespace NA.Web.Controllers
@@ -25,9 +27,9 @@ namespace NA.Web.Controllers
             return View(auctions);
         }
 
+        [CustomerAuthorize(Role.Customer)]
         public ActionResult ViewAuction(Guid id)
         {
-
             return View();
         }
     }
