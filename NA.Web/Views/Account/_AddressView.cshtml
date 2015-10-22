@@ -1,0 +1,151 @@
+﻿@model NA.Web.Models.Account.AddressViewModel
+
+<style>
+    .addressDiv {
+        padding: 3px;
+        border: 1px solid chocolate;
+        border-radius: 3px;
+        background-color: beige;
+        margin-bottom: 3px;
+    }
+
+    .visibilityClass {
+        display: none;
+    }
+</style>
+
+<div id="addressContainer">
+    <div class="form-group">
+        @Html.LabelFor(model => model.AddressType, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @Html.DropDownListFor(model => model.AddressType, Model.AddressTypes, "--Select type--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AddressType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-3 col-md-8">
+        <input type="button" value="Add" id="addAddressBtn" class="btn btn-default" />
+        <input type="button" value="Hide" id="toggleAddressFields" class="btn btn-default visibilityClass" />
+    </div>
+</div>
+
+
+
+@*@section scripts{*@
+<script>
+    $(function () {
+        $('#addAddressBtn').click(function () {
+            var isValid = true;
+            $('#addressContainer input').each(function () {
+
+                if ($(this).val() === '' && isValid) {
+                    alert('All fields need to be filled');
+                    isValid = false;
+                }
+            });
+            if ($('#AddressType option:selected').val() === '' && isValid) {
+                alert('Address type must be specified');
+                isValid = false;
+            }
+
+
+            if (isValid) {
+                var id = new Date().getTime(),
+                    street = $('#Street').val(),
+                    postalcode = $('#PostalCode').val(),
+                    city = $('#City').val(),
+                    country = $('#Country').val(),
+                    addressType = $('#AddressType option:selected').text(),
+                    addressTypeId = $('#AddressType option:selected').val(),
+                    addressDiv =
+                    '<div id="' + id + '" class="addressDiv col-md-10">'
+                    + '<input type="hidden" name="Addresses.Index" value="' + id + '"/>'
+                    + '<input type="hidden" name="Addresses[' + id + '].Street" value="' + street + '"/>'
+                    + '<input type="hidden" name="Addresses[' + id + '].PostalCode" value="' + postalcode + '"/>'
+                    + '<input type="hidden" name="Addresses[' + id + '].City" value="' + city + '"/>'
+                    + '<input type="hidden" name="Addresses[' + id + '].Country" value="' + country + '"/>'
+                    + '<input type="hidden" name="Addresses[' + id + '].AddressType" value="' + addressTypeId + '"/>'
+                    + street + ', ' + postalcode + ' ' + city + ', ' + country + ' (' + addressType + ')'
+                    + '</div>' + '<div class="col-md-2"><a href="#" onclick=removeAddress("' + id + '")><span class="glyphicon glyphicon-remove"></span></a></div>';
+                $('#addressPanel').append(addressDiv);
+
+                $('#addressContainer input').each(function () {
+                    $(this).val('');
+                });
+                $('#AddressType option[value=""]').attr('selected', true);
+
+                hideAddressFields();
+            }
+        });
+
+
+
+
+        $('#toggleAddressFields').on('click', function () {
+            if ($(this).val() === 'Hide') {
+                hideAddressFields();
+            } else {
+                showAddressFields();
+            }
+        });
+    });
+
+    function removeAddress(id) {
+        $('#' + id).next().remove();
+        $('#' + id).remove();
+        if ($('#addressPanel').children().length <= 0) {
+            showAddressFields();
+            $('#toggleAddressFields').addClass('visibilityClass');
+        }
+    }
+
+    function showAddressFields() {
+        $("#addressContainer").removeClass('visibilityClass');
+        $('#toggleAddressFields').val('Hide');
+        $('#addAddressBtn').show();
+    }
+
+    function hideAddressFields() {
+        $("#addressContainer").addClass('visibilityClass');
+        $('#toggleAddressFields').val('New address').removeClass('visibilityClass');
+        $('#addAddressBtn').hide();
+    }
+
+    
+</script>
+
+@*}*@
+

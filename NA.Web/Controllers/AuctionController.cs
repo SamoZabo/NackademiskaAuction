@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NA.Domain.DomainClasses;
 using NA.Domain.Exception;
 using NA.Domain.Facade;
+using NA.Web.CustomFilters;
 using NA.Web.Models.Auction;
 
 namespace NA.Web.Controllers
 {
+    [CustomerAuthorize(Role.Admin)]
     public class AuctionController : ControllerBase
     {
         private readonly IAuctionFacade _auctionFacade;

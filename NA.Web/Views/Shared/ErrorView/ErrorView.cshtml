@@ -4,5 +4,21 @@
     ViewBag.Title = "ErrorView";
 }
 
-<h2>Excption: @Model.Message</h2>
+<style>
+    #errorDiv {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: salmon;
+        margin-top: 30px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 3;
+        border-radius: 5px;
+        border: 2px solid red;
+        color: darkred;
+    }
+</style>
+
+<div id="errorDiv">Exception: @Model.Message</div>
 

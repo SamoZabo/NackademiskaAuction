@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,7 +28,7 @@ namespace NA.Web.Controllers
             return View(auctions);
         }
 
-        [CustomerAuthorize(Role.Customer)]
+        [CustomerAuthorize(Role.Customer, Role.Admin)]
         public ActionResult ViewAuction(Guid id)
         {
             return View();

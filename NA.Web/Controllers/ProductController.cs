@@ -7,10 +7,12 @@ using System.Web.Mvc;
 using NA.Domain.DomainClasses;
 using NA.Domain.Facade;
 using NA.Domain.Factory;
+using NA.Web.CustomFilters;
 using NA.Web.Models.Product;
 
 namespace NA.Web.Controllers
 {
+    [CustomerAuthorize(Role.Admin)]
     public class ProductController : ControllerBase
     {
         private readonly IProductFacade _productFacade;

@@ -11,9 +11,9 @@ namespace NA.Web.CustomFilters
 {
     public class CustomerAuthorize : AuthorizeAttribute
     {
-        public Role CustomerRole { get; set; }
+        public IList<Role> CustomerRole { get; set; }
 
-        public CustomerAuthorize(Role role)
+        public CustomerAuthorize(params Role[] role)
         {
             CustomerRole = role;
         }
@@ -25,7 +25,7 @@ namespace NA.Web.CustomFilters
                 return false;
             if (!customer.Identity.IsAuthenticated)
                 return false;
-            return customer.IsInRole(CustomerRole.ToString());
+            return CustomerRole.Any(r => customer.IsInRole(r.ToString()));
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)

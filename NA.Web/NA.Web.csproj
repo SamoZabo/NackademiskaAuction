@@ -166,7 +166,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Identity\FormsAuthenticationAdapter.cs" />
+    <Compile Include="Models\Account\AddressViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Auction\BidViewModel.cs" />
     <Compile Include="Models\Auction\CreateAuctionViewModel.cs" />
     <Compile Include="Models\Auction\ShowAuctionViewModel.cs" />
@@ -195,6 +197,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_AuctionList.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_AddressView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

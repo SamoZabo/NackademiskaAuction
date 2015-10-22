@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using NA.Domain.DomainClasses
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -21,15 +22,27 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nackademiska Auction", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Nackademiska Auction", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
+                <ul class="nav navbar-nav pull-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole(Role.Admin.ToString()))
+                        {
+                            <li>@Html.ActionLink("Products", "Index","Product")</li>
+                        }
+                        
+                        <li>@Html.ActionLink("Logout", "Logout","Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                    }
+                    
+                    
+                </ul>
             </div>
         </div>
     </div>
