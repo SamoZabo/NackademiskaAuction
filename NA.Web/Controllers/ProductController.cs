@@ -20,7 +20,8 @@ namespace NA.Web.Controllers
         private readonly IProductFactory _productFactory;
 
         public ProductController(IProductFacade productFacade, IAuctionFacade auctionFacade, IProductFactory productFactory,
-            ICustomerFacade customerFacade) : base(customerFacade)
+            ICustomerFacade customerFacade)
+            : base(customerFacade)
         {
             _productFacade = productFacade;
             _auctionFacade = auctionFacade;
@@ -32,7 +33,9 @@ namespace NA.Web.Controllers
             var products = _productFacade.GetAll().Select(p => new ProductViewModel(p)).ToList();
             foreach (var product in products)
             {
-                product.HasAuction = _auctionFacade.GetByProductId(product.Id).Any();
+                product.HasAuction = _auctionFacade.GetByProductId(product.Id)
+                    .Any(a => a.IsActive || a.StartTime > DateTime.Now) 
+                    || product.IsSold;
             }
             return View(products);
         }

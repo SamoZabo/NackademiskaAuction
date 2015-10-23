@@ -16,3 +16,5 @@ PLANERAT:
 -client side validering - add product
 -kunna lägga till fler time epoker???
 
+http://keith-wood.name/countdown.html
+http://plugins.jquery.com/kbw.countdown/
