@@ -12,7 +12,7 @@
     }
 </style>
 
-<div class="list-group col-md-6">
+<div class="list-group col-md-6" id="container_@Model.AuctionId">
     @Html.HiddenFor(m => m.AuctionId)
     <a href="@Url.Action("ViewAuction", new {id = @Model.AuctionId})" class="list-group-item">
         <div class="row">
@@ -58,13 +58,16 @@
 
         $("#counter_@(Model.AuctionId)").countdown({
             until: new Date(year, month, day, hour, minute, seconds),
-            onTick: lastFiveMinutes
+            onTick: lastFiveMinutes,
+            onExpiry: function() { $('#container_@(Model.AuctionId)').remove();}
+
         });
     });
     function lastFiveMinutes(time) {
-        if ($.countdown.periodsToSeconds(time) === 300) {
+        if ($.countdown.periodsToSeconds(time) <= 300 && !$(this).hasClass('highlight')) {
             $(this).addClass('highlight');
         }
+        
     }
 </script>
 
