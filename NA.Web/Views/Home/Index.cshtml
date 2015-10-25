@@ -3,14 +3,40 @@
 @{
     ViewBag.Title = "Auctions";
 }
-
+<style>
+    #emptyAuctionList {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 80px;
+        border: 2px solid currentColor;
+        border-radius: 15px;
+        font-size: 20px;
+        line-height: 4;
+        text-align: center;
+    }
+    .glyphicon {
+        top: 7px;
+        font-size: 30px;
+    }
+</style>
 <h2>Auctions</h2>
 
 <div class="row">
-    @foreach (var item in Model)
+    @if (!Model.Any())
     {
-        @Html.Partial("_AuctionList", item)
+        <div id="emptyAuctionList" class="alert-info">
+            <span class="glyphicon glyphicon-info-sign"></span> There are no active auctions at the moment, please try again later.
+        </div>
     }
+    else
+    {
+        foreach (var item in Model)
+        {
+            @Html.Partial("_AuctionList", item)
+        }
+    }
+
 </div>
 
 @section scripts{
