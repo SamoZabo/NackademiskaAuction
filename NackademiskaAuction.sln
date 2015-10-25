@@ -13,8 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.DBSetup", "NA.DBSetup\NA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NA.Web", "NA.Web\NA.Web.csproj", "{D0B298DF-9106-43FF-89B0-E5AFA5F93CFE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TO DO", "TO DO", "{2240E0F6-2496-41EA-8DD7-6E23CC941269}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{2240E0F6-2496-41EA-8DD7-6E23CC941269}"
 	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
 		TO DO List.txt = TO DO List.txt
 	EndProjectSection
 EndProject
