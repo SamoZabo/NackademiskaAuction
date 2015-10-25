@@ -1,0 +1,33 @@
+﻿.remaining {
+    background-color: transparent !important;
+    border: none !important;
+    color: green;
+}
+
+.highlight {
+    color: red;
+}
+
+.close:hover {
+    opacity: 1 !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.notInlogged {
+     width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: salmon;
+        margin-top: 30px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 3;
+        border-radius: 5px;
+        border: 2px solid red;
+        color: darkred;
+}

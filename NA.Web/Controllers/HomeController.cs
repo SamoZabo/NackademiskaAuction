@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NA.Domain.DomainClasses;
+using NA.Domain.Exception;
 using NA.Domain.Facade;
 using NA.Web.CustomFilters;
 using NA.Web.Models.Home;
@@ -28,10 +29,19 @@ namespace NA.Web.Controllers
             return View(auctions);
         }
 
+        [HttpPost]
         [CustomerAuthorize(Role.Customer, Role.Admin)]
-        public ActionResult ViewAuction(Guid id)
+        public ActionResult PlaceBid(Guid auctionId, decimal bid)
         {
-            return View();
+            try
+            {
+                _auctionFacade.PlaceBid(Guid.NewGuid(), auctionId, bid, DateTime.Now, (Customer)User);
+                return RedirectToAction("Index");
+            }
+            catch (AuctionException e)
+            {
+                return View("~/Views/Shared/ErrorView/ErrorView.cshtml", e);
+            }
         }
     }
 }

@@ -95,7 +95,8 @@ namespace NA.Domain.Facade
             _auctionRespository.Update();
             if (auction.Bids.Any())
             {
-                auction.Product.IsSold = true;
+                var product = _productRepository.Get(auction.Product.Id);
+                product.IsSold = true;
                 _productRepository.Update();
             }
             return auction.Bids.OrderBy(b => b.Amount).LastOrDefault();
@@ -106,7 +107,7 @@ namespace NA.Domain.Facade
             var auctions =_auctionRespository.GetAuctions() ?? new List<Auction>();
             foreach (var auction in auctions)
             {
-                var active = auction.StartTime < DateTime.Now && auction.EndTime > DateTime.Now;
+                var active = auction.StartTime < DateTime.Now && auction.EndTime > DateTime.Now && !auction.Product.IsSold;
                 if (auction.IsActive != active)
                 {
                     auction.IsActive = active;

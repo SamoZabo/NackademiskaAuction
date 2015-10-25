@@ -28,6 +28,7 @@ namespace NA.Web.Repository
         public void AddBid(Guid auctionId, Domain.DomainClasses.Bid bid)
         {
             var auction = Get(auctionId);
+            bid.Customer = _db.Customers.First(c => c.Id == bid.Customer.Id);
             auction.Bids.Add(bid);
             Update();
         }

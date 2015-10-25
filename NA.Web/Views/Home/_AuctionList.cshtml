@@ -1,20 +1,11 @@
 ﻿@model NA.Web.Models.Home.AuctionListViewModel
 
 
-<style>
-    .remaining {
-        background-color: transparent !important;
-        border: none !important;
-        color: green;
-    }
-    .highlight {
-        color: red;
-    }
-</style>
+<link href="~/Content/AuctionRemainingTimeStyleSheet.css" rel="stylesheet" />
 
 <div class="list-group col-md-6" id="container_@Model.AuctionId">
     @Html.HiddenFor(m => m.AuctionId)
-    <a href="@Url.Action("ViewAuction", new {id = @Model.AuctionId})" class="list-group-item">
+    <a data-toggle="modal" href="#" data-target="#popUp_@Model.AuctionId" class="list-group-item">
         <div class="row">
             <h3 class="list-group-item-heading col-md-10">@Model.ProductName</h3>
             <div class="col-md-2">
@@ -37,37 +28,131 @@
             </div>
 
             <div class="col-md-6">
-                <div class="remaining" id="counter_@Model.AuctionId"></div>
+                <div class="remaining" id="counter_@Model.AuctionId"
+                     data-year="@Model.EndTime.Year" data-month="@(Model.EndTime.Month - 1)"
+                     data-day="@Model.EndTime.Day" data-hour="@Model.EndTime.Hour"
+                     data-minute="@Model.EndTime.Minute" data-second="@Model.EndTime.Second"
+                     data-modelid="@Model.AuctionId"></div>
             </div>
         </div>
     </a>
 </div>
 
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="popUp_@Model.AuctionId" tabindex="-1" role="dialog"
+     aria-labelledby="label_@Model.ProductName" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="row">
+                    <button type="button" class="close col-md-1" data-dismiss="modal" style="
+                                background-color: #a94442;
+                                width: 25px;
+                                height: 25px;
+                                margin-right: 15px;
+                                border-radius: 100%;
+                                margin-top: 0px;
+                                color: antiquewhite;
+                                opacity: .5;">
+                        <span aria-hidden="true" style="">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h2 class="modal-title col-md-5" id="label_@Model.ProductName">
+                        @Model.ProductName
+                    </h2>
+                    <div class="col-md-6">
+                        <div class="remaining" id="counter_@(Model.AuctionId)_popup"
+                             data-year="@Model.EndTime.Year" data-month="@(Model.EndTime.Month - 1)"
+                             data-day="@Model.EndTime.Day" data-hour="@Model.EndTime.Hour"
+                             data-minute="@Model.EndTime.Minute" data-second="@Model.EndTime.Second"
+                             data-modelid="@Model.AuctionId">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+                <form class="form-horizontal" role="form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CurrentPrice, new { @class = "control-label col-sm-6" })
+                                <div class="col-sm-6" style="padding-top: 6px;">
+                                    @Html.DisplayFor(m => m.CurrentPrice, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TotalBids, new { @class = "control-label col-sm-6" })
+                                <div class="col-sm-6" style="padding-top: 6px;">
+                                    @Html.DisplayFor(m => m.TotalBids, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <div class="row">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" style="text-align: center;" id="bid_@Model.AuctionId" />
+                                    <div class="input-group-addon">kr</div>
+                                </div>
+
+                                <button class="btn btn-success col-sm-12 bid_btn" data-current-price="@Model.CurrentPrice" data-modelid="@(Model.AuctionId)" style="margin-top: 5px;">Place bid</button>
+                                <button class="btn btn-success col-sm-12 bid_accepted_btn" data-current-price="@Model.CurrentPrice" data-modelid="@(Model.AuctionId)" data-accepted-price="@Model.AcceptedPrice" style="margin-top: 5px;">Buy now at @Model.AcceptedPrice</button>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div>
+                                <div class="alert-danger notInlogged">
+                                    You need to be logged in to be able to place a bid
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
+
     $(function () {
-
-        var year =@Model.EndTime.Year,
-            month = @Model.EndTime.Month -1,
-            day = @Model.EndTime.Day,
-            hour=@Model.EndTime.Hour,
-            minute = @Model.EndTime.Minute,
-            seconds=@Model.EndTime.Second;
-
-        $("#counter_@(Model.AuctionId)").countdown({
-            until: new Date(year, month, day, hour, minute, seconds),
-            onTick: lastFiveMinutes,
-            onExpiry: function() { $('#container_@(Model.AuctionId)').remove();}
-
+        $('.btn-success').unbind().on('click', function () {
+            var amount;
+            var currentPrice = $(this).data('current-price');
+            var modelId = $(this).data('modelid');
+            if ($(this).hasClass('bid_btn')) {
+                amount = $('#bid_' + modelId).val();
+            } else if ($(this).hasClass('bid_accepted_btn')) {
+                amount = $(this).data('accepted-price');
+            }
+            if (amount === '') {
+                return false;
+            } else if (amount <= currentPrice) {
+                alert('The bid must be greater than current price.');
+                return false;
+            } else {
+                var url = '@Url.Action("PlaceBid")?auctionId=' + modelId + '&bid=' + amount;
+                $('form').attr('action', url).attr('method', 'post');
+                $('form').submit();
+            }
         });
     });
-    function lastFiveMinutes(time) {
-        if ($.countdown.periodsToSeconds(time) <= 300 && !$(this).hasClass('highlight')) {
-            $(this).addClass('highlight');
-        }
-        
-    }
-</script>
 
+</script>
+<script src="~/Scripts/AuctionRemainingTimeScript.js"></script>

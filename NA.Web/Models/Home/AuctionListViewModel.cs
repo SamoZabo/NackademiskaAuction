@@ -9,6 +9,10 @@ namespace NA.Web.Models.Home
 {
     public class AuctionListViewModel
     {
+        public AuctionListViewModel()
+        {
+            
+        }
         public AuctionListViewModel(Domain.DomainClasses.Auction auction)
         {
             AuctionId = auction.Id;

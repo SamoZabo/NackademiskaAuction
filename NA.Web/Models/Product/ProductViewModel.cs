@@ -39,23 +39,28 @@ namespace NA.Web.Models.Product
 
 
         public Guid Id { get; set; }
+
         public string Name { get; set; }
+
         public decimal Provision { get; set; }
+
         [Display(Name="Start Price")]
         public decimal StartPrice { get; set; }
+
         [Display(Name = "Supplier")]
-
         public string SupplierName { get; set; }
+
         [Display(Name = "Sold")]
-
         public Boolean IsSold { get; set; }
+
         public ProductType Type { get; set; }
+
         [Display(Name = "Time Epoch")]
-
         public string TimeEpoch { get; set; }
-        [Display(Name = "Designer")]
 
+        [Display(Name = "Designer")]
         public string DesignerName { get; set; }
+
         public bool HasAuction { get; set; }
 
     }
