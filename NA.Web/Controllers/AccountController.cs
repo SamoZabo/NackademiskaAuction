@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using NA.Domain.DomainClasses;
 using NA.Domain.Exception;
 using NA.Domain.Facade;
+using NA.Web.CustomFilters;
 using NA.Web.Models.Account;
 
 namespace NA.Web.Controllers
@@ -40,7 +41,7 @@ namespace NA.Web.Controllers
                 }
                 catch (CustomerException e)
                 {
-                    return View("~/Views/Shared/ErrorView/ErrorView.cshtml", e);
+                    TempData["Error"] = e.Message;
                 }
             }
             return View(model);
@@ -80,7 +81,7 @@ namespace NA.Web.Controllers
                 }
                 catch (CustomerException e)
                 {
-                    return View("~/Views/Shared/ErrorView/ErrorView.cshtml", e);
+                    TempData["Error"] = e.Message;
                 }
 
                 return RedirectToAction("Index","Home");
@@ -91,6 +92,30 @@ namespace NA.Web.Controllers
         public ActionResult Logout()
         {
             _customerFacade.Logout();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [CustomerAuthorize(Role.Admin, Role.Customer)]
+        public ActionResult ChangePassword()
+        {
+            return View(new ChangePasswordViewModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _customerFacade.ChangePassword(model.Email, model.OldPassword, model.NewPassword, model.ConfirmNewPassword);
+                }
+                catch (ApplicationException e)
+                {
+                    TempData["Error"] = e.Message;
+                }
+            }
             return RedirectToAction("Index", "Home");
         }
     }

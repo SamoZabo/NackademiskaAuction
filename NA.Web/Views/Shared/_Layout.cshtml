@@ -32,7 +32,7 @@
                         {
                             <li>@Html.ActionLink("Products", "Index","Product")</li>
                         }
-                        
+                        <li>@Html.ActionLink("Change password", "ChangePassword", "Account")</li>
                         <li>@Html.ActionLink("Logout", "Logout","Account")</li>
                     }
                     else
@@ -47,13 +47,34 @@
         </div>
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year</p>
-        </footer>
-    </div>
+<div class="container body-content">
+    @if (TempData.ContainsKey("Error"))
+    {
+        <style>
+            #errorDiv {
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: salmon;
+                margin-top: 30px;
+                font-size: 18px;
+                text-align: center;
+                line-height: 3;
+                border-radius: 5px;
+                border: 2px solid red;
+                color: darkred;
+            }
+        </style>
+
+        <div id="errorDiv">Error: @TempData["Error"]</div>
+    }
+
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year</p>
+    </footer>
+</div>
 
     @RenderSection("scripts", false)
 </body>

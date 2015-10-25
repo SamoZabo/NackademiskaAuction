@@ -36,12 +36,12 @@ namespace NA.Web.Controllers
             try
             {
                 _auctionFacade.PlaceBid(Guid.NewGuid(), auctionId, bid, DateTime.Now, (Customer)User);
-                return RedirectToAction("Index");
             }
             catch (AuctionException e)
             {
-                return View("~/Views/Shared/ErrorView/ErrorView.cshtml", e);
+                TempData["Error"] = e.Message;
             }
+            return RedirectToAction("Index");
         }
     }
 }

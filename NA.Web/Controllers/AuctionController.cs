@@ -54,7 +54,7 @@ namespace NA.Web.Controllers
                 }
                 catch (AuctionException e)
                 {
-                    return View("~/Views/Shared/ErrorView/ErrorView.cshtml", e);
+                    TempData["Error"] = e.Message;
                 }
             }
 

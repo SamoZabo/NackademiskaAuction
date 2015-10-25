@@ -36,7 +36,17 @@
       <SubType>Content</SubType>
       <DependentUpon>CustomerFacade_Add.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="DomainModel.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DomainModel.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>DomainModel.classdiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package1_1501.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1507.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package2_1501.uml">
@@ -54,6 +64,9 @@
     <Content Include="ModelDefinition\Package_1501.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_1507.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="SystemActorsRoles.usecasediagram">
       <SubType>Content</SubType>
     </Content>
@@ -69,13 +82,6 @@
       <DependentUpon>SystemOverview.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
-    <Content Include="DomainClasses.classdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="DomainClasses.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>DomainClasses.classdiagram</DependentUpon>
-    </Content>
     <Content Include="ModelDefinition\NA.Modeling.uml">
       <SubType>Content</SubType>
     </Content>

@@ -169,6 +169,7 @@
     </Compile>
     <Compile Include="Identity\FormsAuthenticationAdapter.cs" />
     <Compile Include="Models\Account\AddressViewModel.cs" />
+    <Compile Include="Models\Account\ChangePasswordViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Auction\BidViewModel.cs" />
@@ -194,7 +195,6 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Auction\ViewAuction.cshtml" />
     <Content Include="Views\Auction\_Bids.cshtml" />
-    <Content Include="Views\Shared\ErrorView\ErrorView.cshtml" />
     <Content Include="Views\Auction\Create.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_AuctionList.cshtml" />
@@ -202,6 +202,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\_AddressView.cshtml" />
     <Content Include="Views\Home\ViewAuction.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
