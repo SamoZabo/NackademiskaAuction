@@ -1,20 +1,4 @@
 
-
-NÄSTA STEG:
--TIMER FÖR ELIN på auction tiden.
--Avsluta auktionen när tiden är slut.
--Kod för ViewAuction.
--Bidda på auktion.
-
-
-
-PLANERAT:
--Create customer
--Identity (Inloggning och så..).
--complete propeties (If needed).
--tidshantering (stänga auktion via end time mot aktuella tiden).
--client side validering - add product
--kunna lägga till fler time epoker???
-
+Countdown-timer packages:
 http://keith-wood.name/countdown.html
 http://plugins.jquery.com/kbw.countdown/
